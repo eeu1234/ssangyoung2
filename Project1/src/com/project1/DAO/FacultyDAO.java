@@ -19,7 +19,7 @@ public class FacultyDAO {
 			System.out.println(e.toString());
 		}
 	}
-		
+		 
 	
 	
 	
