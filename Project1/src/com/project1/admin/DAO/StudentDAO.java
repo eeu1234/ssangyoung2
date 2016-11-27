@@ -3,10 +3,10 @@ package com.project1.admin.DAO;
 public class StudentDAO {
 //I'm adam
 	
-//Sdfsdf/
+//Sdfsdf/sdfsdfd
 /*
-
-hhihihihi
+������ �ڵ���
+hhihihihisdfsdfsafsfasfsldkfkjflskdjflksdfdsdf
 */
 	
 	public static void studentAdd (){
