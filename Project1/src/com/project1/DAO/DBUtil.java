@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 //�ݺ��Ǵ� JDBC ���� ó��
 public class DBUtil {
 
-//jinwoo fuck123  doyoung   jinwoo
+//나는하진이다. ghihihihidffdgfdg
 	private static Connection conn = null;
 	
 	public static Connection open() {

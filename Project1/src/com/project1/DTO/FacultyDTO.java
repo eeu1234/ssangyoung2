@@ -1,5 +1,5 @@
 package com.project1.DTO;
-//교원
+
 public class FacultyDTO {
 
 	private String staff;
