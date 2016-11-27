@@ -58,7 +58,7 @@ public class DBUtil {
 		} catch (Exception e) {
 			System.out.println("DBUtil : " + e.toString());
 		}
-		 
+		System.out.println();
 		return conn;
 		
 	}
