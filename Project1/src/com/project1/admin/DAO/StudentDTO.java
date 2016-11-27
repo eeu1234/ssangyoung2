@@ -51,4 +51,4 @@ public void setClassCode(String classCode) {
 	
 	
 }
-//dㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+// 삭제해도 되는 파일
