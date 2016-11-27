@@ -9,6 +9,9 @@ studentName	VARCHAR2(15)	학생이름
 password	N/A	비밀번호
 email	N/A	이메일
 classCode(FK)	CHAR(6)	학과코드(FK)
+
+
+잉이이이이잉하하하하하지짖
  	
 **/
 
