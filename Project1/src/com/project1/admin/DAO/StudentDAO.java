@@ -1,7 +1,7 @@
 package com.project1.admin.DAO;
 
 public class StudentDAO {
-//I'm inseon
+//I'm inseon 방가방가~
 	
 /* 
 void studentAdd ()	�븰�깮 �벑濡�
