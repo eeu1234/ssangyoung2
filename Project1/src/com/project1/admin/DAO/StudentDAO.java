@@ -12,7 +12,7 @@ void studentDelete ()	�븰�깮 �젙蹂� �궘�젣
 
 
 
-4시50분 수정
+4시52분 2수정
 */
 	
 	public static void studentAdd (){
