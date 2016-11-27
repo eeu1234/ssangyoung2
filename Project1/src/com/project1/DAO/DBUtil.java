@@ -3,10 +3,10 @@ package com.project1.DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-//¹Ýº¹µÇ´Â JDBC ±¸¹® Ã³¸®
+//ï¿½Ýºï¿½ï¿½Ç´ï¿½ JDBC ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 public class DBUtil {
 
-	 //µµ¿µÀ×
+	 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  fuck  
 	private static Connection conn = null;
 	
 	public static Connection open() {
