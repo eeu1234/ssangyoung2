@@ -1,7 +1,8 @@
 package com.project1.DAO;
 
-import java.beans.Statement;
 import java.sql.Connection;
+import java.sql.Statement;
+
 
 public class FacultyDAO {
 	
@@ -13,7 +14,7 @@ public class FacultyDAO {
 	try {
 			
 			this.conn = DBUtil.open();
-//			this.stat = conn.createStatement();
+			this.stat = conn.createStatement();
 			
 		} catch (Exception e) {
 			System.out.println(e.toString());
