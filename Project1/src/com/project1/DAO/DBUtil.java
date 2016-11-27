@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 //占쌥븝옙占실댐옙 JDBC 占쏙옙占쏙옙 처占쏙옙
 public class DBUtil {
 
-//�굹�뒗�븯吏꾩씠�떎. sdfasdfsdfsdfsdf
+//�굹�뒗�sdfsdfsdf吏꾩씠�떎. sdfasdfsdfsdfsdf
 	private static Connection conn = null;
 	
 	public static Connection open() {
