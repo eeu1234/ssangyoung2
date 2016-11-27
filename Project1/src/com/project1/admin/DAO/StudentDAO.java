@@ -5,7 +5,7 @@ public class StudentDAO {
 
 /* 
  * 
- * 하진이
+ * 하진이vvs
 */
 	
 	public static void studentAdd (){
