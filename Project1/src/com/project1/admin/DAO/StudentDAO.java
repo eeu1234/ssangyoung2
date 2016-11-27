@@ -8,7 +8,7 @@ void studentAdd ()	占쎈sdfsdfdsf린占쎄문 占쎈쾻嚥∽옙
 void studentListAll()	占쎄퐨占쎄문占쎌읅 占쎈린占쎄문 占쎌젟癰귨옙 �빊�뮆�젾占쎌뱽 占쎌맄占쎈립
 void studentSearch()	占쎈린占쎄문 筌뤴뫖以� �빊�뮆�젾
 void studentUpdate ()	占쎈린占쎄문 占쎌젟癰귨옙 占쎈땾占쎌젟
-void studentDelete ()	占쎈린占쎄문 占쎌젟癰귨옙 占쎄텣占쎌젫
+void studentDelete ()	占쎈린占쎄문 占쎌젟癰귨옙 占쎄텣占쎌xcvxcv젫
 */
 	
 	public static void studentAdd (){
