@@ -6,5 +6,6 @@ public class main {
 		System.out.println("hello");
 	System.out.println();
 		System.out.println("5:29");
+		System.out.println("5:29");
 	}
 }
