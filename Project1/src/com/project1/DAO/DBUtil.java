@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 //ï¿½İºï¿½ï¿½Ç´ï¿½ JDBC ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 public class DBUtil {
 
-//?‚˜?Š”?•˜ì§„ì´?‹¤. ghihihihidffdgfdg
+//ë‚˜ëŠ”í•˜ì§„ì´ë‹¤. ghihihihidffdgfdg
 	private static Connection conn = null;
 	
 	public static Connection open() {

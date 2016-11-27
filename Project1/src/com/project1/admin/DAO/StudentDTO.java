@@ -4,11 +4,11 @@ public class StudentDTO {
 /*
 
 STUDENT
-studentNumber(PK)	CHAR(10)	�븰踰�(PK)
-studentName	VARCHAR2(15)	�븰�깮�씠由�
-password	N/A	鍮꾨�踰덊샇sdfsdf
-email	N/A	�씠硫붿씪
-classCode(FK)	CHAR(6)	�븰怨쇱퐫�뱶(FK)
+studentNumber(PK)	CHAR(10)	학번(PK)
+studentName	VARCHAR2(15)	학생이름
+password	N/A	비밀번호
+email	N/A	이메일
+classCode(FK)	CHAR(6)	학과코드(FK)
  	
 **/
 
