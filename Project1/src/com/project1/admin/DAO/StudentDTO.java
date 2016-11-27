@@ -51,4 +51,4 @@ public void setClassCode(String classCode) {
 	
 	
 }
-//d
+//dㅇㅇㅇㅇㅇ
