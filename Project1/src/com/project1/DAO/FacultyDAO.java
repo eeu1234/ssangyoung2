@@ -9,7 +9,7 @@ public class FacultyDAO {
 	private Connection conn;
 	private Statement stat;
 	
-	public FacultyDAO() { //��� �sfsfasfsadfҷ�����
+	public FacultyDAO() { //sdlkkfsdfjlsdkfjklsdjflk
 		
 	try {
 			
