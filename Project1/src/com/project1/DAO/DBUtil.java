@@ -3,10 +3,10 @@ package com.project1.DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-//�ݺ��Ǵ� JDBC ���� ó��
+//占쌥븝옙占실댐옙 JDBC 占쏙옙占쏙옙 처占쏙옙
 public class DBUtil {
 
-//나는하진이다. ghihihihidffdgfdg
+//�굹�뒗�븯吏꾩씠�떎. sdfasdfsdfsdfsdf
 	private static Connection conn = null;
 	
 	public static Connection open() {
