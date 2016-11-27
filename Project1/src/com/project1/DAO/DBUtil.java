@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 //반복되는 JDBC 구문 처리
 public class DBUtil {
 
-	
+	 //도영잉
 	private static Connection conn = null;
 	
 	public static Connection open() {
