@@ -5,7 +5,7 @@ public class StudentDTO {
 
 STUDENT
 stsdfdfudentNumber(PK)	CHAR(10)	학번(PK)
-studentName	VARCHAR2(15)	학생이름
+studentName	VARCHAR2(15)	학생이 름
 password	N/A	비밀번호
 email	N/A	이메일sdfsdfdsfsdfsdfsdf
 classCode(FK)	CHAR(6)	학과코드(FK)
