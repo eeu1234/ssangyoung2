@@ -19,27 +19,27 @@ public class Faculty extends Function {
 	}
 
 	/**
-	 * ±³¿ø°Ë»ö
+	 * êµì›ê²€ìƒ‰
 	 */
 	private static void instructor_search() {
 		FacultyDAO dao = new FacultyDAO();
 
-		System.out.println("¡¼±³¿ø ¸®½ºÆ®¡½");
+		System.out.println("ã€êµì› ë¦¬ìŠ¤íŠ¸ã€‘");
 		ArrayList<FacultyInstructorDTO> i_list = dao.instructor_list();
 
 		for (FacultyInstructorDTO dto : i_list) {
-			System.out.printf("°­»ç ¹øÈ£: %s\n", dto.getStaffCode());
-			System.out.printf("°­»ç ÀÌ¸§: %s\n", dto.getStaffName());
-			System.out.printf("°­»ç ÀÌ¸ŞÀÏ:%s\n", dto.getEmail());
+			System.out.printf("ê°•ì‚¬ ë²ˆí˜¸: %s\n", dto.getStaffCode());
+			System.out.printf("ê°•ì‚¬ ì´ë¦„: %s\n", dto.getStaffName());
+			System.out.printf("ê°•ì‚¬ ì´ë©”ì¼:%s\n", dto.getEmail());
 			System.out.printf("----------------\n");
 
 		} // for
 
 		for (FacultyInstructorDTO dto : i_list) {
 
-			System.out.printf("±³¼ö ¹øÈ£: %s\n", dto.getStaffCode());
-			System.out.printf("±³¼ö ÀÌ¸§: %s\n", dto.getStaffName());
-			System.out.printf("±³¼ö ÀÌ¸ŞÀÏ:%s\n----------------\n", dto.getEmail());
+			System.out.printf("êµìˆ˜ ë²ˆí˜¸: %s\n", dto.getStaffCode());
+			System.out.printf("êµìˆ˜ ì´ë¦„: %s\n", dto.getStaffName());
+			System.out.printf("êµìˆ˜ ì´ë©”ì¼:%s\n----------------\n", dto.getEmail());
 		} // for
 
 	}// i_list
@@ -55,45 +55,45 @@ public class Faculty extends Function {
 	
 	
 	/**
-	 * ±³¿ø¸ñ·Ï
+	 * êµì›ëª©ë¡
 	 */
 	private static void instructor_list() {
 		FacultyDAO dao = new FacultyDAO();
 
-		System.out.println("¡¼±³¿ø ¸®½ºÆ®¡½");
+		System.out.println("ã€êµì› ë¦¬ìŠ¤íŠ¸ã€‘");
 		ArrayList<FacultyInstructorDTO> i_list = dao.instructor_list();
 
 		for (FacultyInstructorDTO dto : i_list) {
-			System.out.printf("°­»ç ¹øÈ£: %s\n", dto.getStaffCode());
-			System.out.printf("°­»ç ÀÌ¸§: %s\n", dto.getStaffName());
-			System.out.printf("°­»ç ÀÌ¸ŞÀÏ:%s\n", dto.getEmail());
+			System.out.printf("ê°•ì‚¬ ë²ˆí˜¸: %s\n", dto.getStaffCode());
+			System.out.printf("ê°•ì‚¬ ì´ë¦„: %s\n", dto.getStaffName());
+			System.out.printf("ê°•ì‚¬ ì´ë©”ì¼:%s\n", dto.getEmail());
 			System.out.printf("----------------\n");
 
 		} // for
 
 		for (FacultyInstructorDTO dto : i_list) {
 
-			System.out.printf("±³¼ö ¹øÈ£: %s\n", dto.getStaffCode());
-			System.out.printf("±³¼ö ÀÌ¸§: %s\n", dto.getStaffName());
-			System.out.printf("±³¼ö ÀÌ¸ŞÀÏ:%s\n----------------\n", dto.getEmail());
+			System.out.printf("êµìˆ˜ ë²ˆí˜¸: %s\n", dto.getStaffCode());
+			System.out.printf("êµìˆ˜ ì´ë¦„: %s\n", dto.getStaffName());
+			System.out.printf("êµìˆ˜ ì´ë©”ì¼:%s\n----------------\n", dto.getEmail());
 		} // for
 
 	}// i_list
 
 	
 	/**
-	 * ±³¿ø ¸ŞÀÎ¸Ş´º
+	 * êµì› ë©”ì¸ë©”ë‰´
 	 */
 	public static void Facultymenu() {
 
 		boolean flag = true;
 		while (flag) {
 			System.out.println("<MENU> ");
-			System.out.println("1.±³¿ø ¸®½ºÆ® ");
-			System.out.println("2.±³¿ø °Ë»ö ");
-			System.out.println("0.¸ŞÀÎ ¸Ş´º·Î");
+			System.out.println("1.êµì› ë¦¬ìŠ¤íŠ¸ ");
+			System.out.println("2.êµì› ê²€ìƒ‰ ");
+			System.out.println("0.ë©”ì¸ ë©”ë‰´ë¡œ");
 
-			System.out.println("¹øÈ£ ÀÔ·Â: ");
+			System.out.println("ë²ˆí˜¸ ì…ë ¥: ");
 
 			String n = scan.nextLine();
 
@@ -102,7 +102,7 @@ public class Faculty extends Function {
 			} else if (n.equals("2")) {
 
 			} else if (n.equals("0")) {
-				//±³¿ø¸ŞÀÎ¸Ş´º°¡±â
+				//êµì›ë©”ì¸ë©”ë‰´ê°€ê¸°
 					main.faculty();
 			}
 

@@ -16,7 +16,7 @@ public class FacultyDAO {
 	private Statement stat;
 
 
-	public FacultyDAO() { //µğºñ ºÒ·¯¿À±â
+	public FacultyDAO() { //ë””ë¹„ ë¶ˆëŸ¬ì˜¤ê¸°
 
 		try {
 
@@ -31,9 +31,9 @@ public class FacultyDAO {
 
 	/**
 	 * 
-	 * @±³¿ø °Ë»ö
+	 * @êµì› ê²€ìƒ‰
 	 */
-	public ArrayList<FacultyInstructorDTO> instructor_search() { //±³¿ø Ãâ·Â
+	public ArrayList<FacultyInstructorDTO> instructor_search() { //êµì› ì¶œë ¥
 
 		ArrayList<FacultyInstructorDTO> list = new ArrayList<FacultyInstructorDTO>();
 		
@@ -78,9 +78,9 @@ public class FacultyDAO {
 	
 	/**
 	 * 
-	 * @±³¿ø ¸ñ·Ï
+	 * @êµì› ëª©ë¡
 	 */
-	public ArrayList<FacultyInstructorDTO> instructor_list() { //±³¿ø Ãâ·Â
+	public ArrayList<FacultyInstructorDTO> instructor_list() { //êµì› ì¶œë ¥
 
 		ArrayList<FacultyInstructorDTO> list = new ArrayList<FacultyInstructorDTO>();
 		

@@ -25,12 +25,12 @@ public class main extends Function {
   
    
    public static void faculty(){
-	   System.out.println("<±³¿ø ¸ŞÀÎ¸Ş´º> ");
+	   System.out.println("<êµì› ë©”ì¸ë©”ë‰´> ");
 	   System.out.println("----------------");
-	   System.out.println("1.±³¿ø ");
-	   System.out.println("2.±³À° °úÁ¤ ");
+	   System.out.println("1.êµì› ");
+	   System.out.println("2.êµìœ¡ ê³¼ì • ");
 	  
-	   System.out.println("¹øÈ£ ÀÔ·Â: ");
+	   System.out.println("ë²ˆí˜¸ ì…ë ¥: ");
 	   
 	   String n = scan.nextLine();
 	   
