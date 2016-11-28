@@ -9,11 +9,18 @@ public class FacultyInstructorDTO {
 	private String password;
 	private String email;
 	private String staffCode;
+	private String classcode;
 	
 	
 	
 	
 	
+	public String getClasscode() {
+		return classcode;
+	}
+	public void setClasscode(String classcode) {
+		this.classcode = classcode;
+	}
 	public String getStaffName() {
 		return staffName;
 	}

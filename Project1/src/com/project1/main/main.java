@@ -10,11 +10,14 @@ import com.project1.faculty.Faculty;
 
 import java.util.ArrayList;
 public class main extends Function {
+
+
+
    public static void main(String[] args) {
 	   
 	  Function.init();
       
-	  // 
+	  // //
 	  
 	  faculty();
       
@@ -37,15 +40,9 @@ public class main extends Function {
 	   if (n.equals("1")) {
 	 	  Faculty.Faculty();
 
+	   }
 	   
-	   }    
-   }
- 
-   
-   
-
-      
-      
-  
+	   
+   }//faculty
 
 }//class

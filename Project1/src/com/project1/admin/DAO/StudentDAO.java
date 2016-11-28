@@ -1,13 +1,8 @@
 package com.project1.admin.DAO;
 
 public class StudentDAO {
-//I'm adam
+
 	
-//Sdfsdf/sdfsdfd
-/*
-������ �ڵ���
-hhihihihisdfsdfsafsfasfsldkfkjflskdjflksdfdsdf
-*/
 	
 	public static void studentAdd (){
 		
