@@ -12,7 +12,7 @@ public class main {
    
    public static void main(String[] args) {
       
-      
+      //COMMIT TEST
       init();
       
       System.out.print("번호 입력: ");
