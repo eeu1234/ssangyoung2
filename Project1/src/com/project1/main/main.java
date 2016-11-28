@@ -4,19 +4,19 @@ import java.util.Scanner;
 
 import com.project1.DAO.FacultyDAO;
 import com.project1.DTO.FacultyDTO;
-import com.project1.DTO.FacultyInstructorDTO;
-import com.project1.DTO.InstructorDTO;
+import com.project1.admin.DAO.StudentDAO;
+import com.project1.admin.DAO.StudentDTO;
 import com.project1.faculty.Faculty;
+import com.project1.student.Student;
 
 import java.util.ArrayList;
 public class main extends Function {
    public static void main(String[] args) {
 	   
 	  Function.init();
-      
-	  // //
+	  login();
 	  
-	  faculty();
+	  
       
       
       
@@ -24,6 +24,14 @@ public class main extends Function {
    }//main
   
    
+   public static void student(){
+	 
+   }
+ 
+   
+   /**
+    * 교원 계정 로그인 메인메뉴
+    */
    public static void faculty(){
 	   System.out.println("<교원 메인메뉴> ");
 	   System.out.println("----------------");
@@ -42,10 +50,97 @@ public class main extends Function {
    }
  
    
-   
 
       
       
   
+   
+   public static void login(){
+
+	   boolean flag = true;
+	   
+	   while(flag){
+	   
+	   System.out.print("아이디를 입력하세요 : ");
+	   String id = scan.nextLine();
+	   System.out.print("비밀번호를 입력하세요 : ");
+	   String pass = scan.nextLine();
+	   
+	   //학생 ,교원 , 관리자 구분
+	   String level =  id.substring(0,1);
+	   
+	   
+	    //교원
+	   if(level.equals("1")){
+		   flag= false;
+		   
+			FacultyDAO daoF = new FacultyDAO();
+			
+			ArrayList<FacultyDTO> list = daoF.instructor_list();
+		   
+			System.out.println(list.size());
+			
+			 //학생 메뉴 호출
+			   
+			   for (FacultyDTO dtoF : list) {
+				   //학생 테이블에서 ID와 비밀번호 있는지 여부 확인
+				   
+				   System.out.println(dtoF.getStaffCode());
+				   System.out.println(dtoF.getPassWord());
+				   if(dtoF.getStaffCode().equals(id) && dtoF.getPassWord().equals(pass)){
+					   Faculty.Faculty();
+					  
+					   flag= false;
+					break;
+				   }
+					
+				} // for
+			
+		   
+		 //학생  
+	   }else if(level.equals("2")){
+		   
+		   
+		   StudentDAO daoS = new StudentDAO();
+		ArrayList<StudentDTO> list = daoS.studentSearch();
+		   
+		   //학생 메뉴 호출
+		   
+		   for (StudentDTO dto : list) {
+			   //학생 테이블에서 ID와 비밀번호 있는지 여부 확인
+			   if(dto.getStudentNumber().equals(id) && dto.getPassword().equals(pass)){
+				
+				  
+				   flag= false;
+				   Student.menu();
+				break;
+			   }
+				
+			} // for
+		   
+		   
+		   
+		   
+	   }else if(level.equals("a")){
+		   System.out.println("관리자");
+		   flag= false;
+	   }
+	   
+	   
+	   else{
+		   
+	   }
+	   
+	   
+	   
+	   
+	   
+		
+	   
+	   
+	   
+	   
+	   }//while
+   }
 
 }//class

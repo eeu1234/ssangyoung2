@@ -3,7 +3,6 @@ package com.project1.DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-//�ݺ��Ǵ� JDBC ���� ó��
 public class DBUtil {
 
    
@@ -12,7 +11,7 @@ public class DBUtil {
    public static Connection open() {
       
       String url = "jdbc:oracle:thin:@eeu1234.iptime.org:1521:adam";
-      String id = "inseon";
+      String id = "jinwoo";
       String pw = "java1234";
       
       try {

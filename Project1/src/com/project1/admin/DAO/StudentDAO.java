@@ -1,13 +1,29 @@
 package com.project1.admin.DAO;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.project1.DAO.DBUtil;
+
 public class StudentDAO {
-//I'm adam
-	
-//Sdfsdf/sdfsdfd
-/*
-������ �ڵ���
-hhihihihisdfsdfsafsfasfsldkfkjflskdjflksdfdsdf
-*/
+
+	private Connection conn;
+	private Statement stat;
+
+
+	public StudentDAO() { //디비 불러오기
+
+		try {
+
+			this.conn = DBUtil.open();
+			this.stat = conn.createStatement();
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+	}
 	
 	public static void studentAdd (){
 		
@@ -17,7 +33,42 @@ hhihihihisdfsdfsafsfasfsldkfkjflskdjflksdfdsdf
 		
 	};
 	
-	public static void studentSearch(){
+public ArrayList<StudentDTO> studentSearch() {
+			
+			ArrayList<StudentDTO> list = new ArrayList<StudentDTO>();
+			try {
+				
+				StudentDTO dto = new StudentDTO();
+
+				String sql = " SELECT * FROM STUDENT";
+				
+				ResultSet rs = stat.executeQuery(sql);
+				
+				if (rs.next()) {
+					
+					dto.setStudentNumber(rs.getString("STUDENTNUMBER"));
+					dto.setStudentName(rs.getString("STUDENTNAME"));
+					dto.setPassword(rs.getString("PASSWORD"));
+					dto.setEmail(rs.getString("EMAIL"));
+					dto.setClassCode(rs.getString("CLASSCODE"));
+				
+					
+					list.add(dto);
+				}
+				
+			DBUtil.close();
+			} catch (Exception e) {
+				System.out.println(e.toString());
+			}
+			
+			
+			
+			
+			
+			
+			
+			return list;	
+		
 		
 	};
 	
