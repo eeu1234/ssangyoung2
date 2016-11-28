@@ -5,16 +5,17 @@ public class ProfessorDTO {
 	private String password;
 	private String email;
 	private String classCode;
-	private String staff;
+	private String staffcode;
 	
 	
 	
 	
-	public String getStaff() {
-		return staff;
+	
+	public String getStaffcode() {
+		return staffcode;
 	}
-	public void setStaff(String staff) {
-		this.staff = staff;
+	public void setStaffcode(String staffcode) {
+		this.staffcode = staffcode;
 	}
 	public String getPassword() {
 		return password;

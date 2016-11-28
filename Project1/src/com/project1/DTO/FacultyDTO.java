@@ -2,16 +2,19 @@ package com.project1.DTO;
 
 public class FacultyDTO {
 
-	private String staff;
+	private String staffCode;
+	
 	private String staffName;
 	private String betweenCode;
 	
 	
-	public String getStaff() {
-		return staff;
+
+	
+	public String getStaffCode() {
+		return staffCode;
 	}
-	public void setStaff(String staff) {
-		this.staff = staff;
+	public void setStaffCode(String staffCode) {
+		this.staffCode = staffCode;
 	}
 	public String getStaffName() {
 		return staffName;
