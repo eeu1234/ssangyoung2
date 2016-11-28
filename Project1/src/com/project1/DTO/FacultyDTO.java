@@ -3,7 +3,6 @@ package com.project1.DTO;
 public class FacultyDTO {
 
 	private String staffCode;
-	
 	private String staffName;
 	private String betweenCode;
 	

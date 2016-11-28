@@ -9,6 +9,11 @@ public class FacultyInstructorDTO {
 	private String password;
 	private String email;
 	private String staffCode;
+	
+	
+	
+	
+	
 	public String getStaffName() {
 		return staffName;
 	}

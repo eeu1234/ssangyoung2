@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.project1.DAO.FacultyDAO;
+import com.project1.DTO.DepartmentDTO;
 import com.project1.DTO.FacultyInstructorDTO;
 import com.project1.main.Function;
 import com.project1.main.main;
@@ -21,38 +22,30 @@ public class Faculty extends Function {
 	/**
 	 * 교원검색
 	 */
-	private static void instructor_search() {
+	private static void search() {
+		System.out.print("검색:");
+		String name = scan.nextLine();
+		
 		FacultyDAO dao = new FacultyDAO();
-
-		System.out.println("【교원 리스트】");
-		ArrayList<FacultyInstructorDTO> i_list = dao.instructor_list();
-
-		for (FacultyInstructorDTO dto : i_list) {
+		
+		ArrayList<FacultyInstructorDTO> list = dao.search(name);
+		
+		
+		
+		for (FacultyInstructorDTO dto : list) {
 			System.out.printf("강사 번호: %s\n", dto.getStaffCode());
 			System.out.printf("강사 이름: %s\n", dto.getStaffName());
 			System.out.printf("강사 이메일:%s\n", dto.getEmail());
 			System.out.printf("----------------\n");
 
 		} // for
+		
+		
+	
+	}
+		
+		
 
-		for (FacultyInstructorDTO dto : i_list) {
-
-			System.out.printf("교수 번호: %s\n", dto.getStaffCode());
-			System.out.printf("교수 이름: %s\n", dto.getStaffName());
-			System.out.printf("교수 이메일:%s\n----------------\n", dto.getEmail());
-		} // for
-
-	}// i_list
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	/**
 	 * 교원목록
@@ -100,7 +93,7 @@ public class Faculty extends Function {
 			if (n.equals("1")) {
 				instructor_list();
 			} else if (n.equals("2")) {
-
+				search();
 			} else if (n.equals("0")) {
 				//교원메인메뉴가기
 					main.faculty();
