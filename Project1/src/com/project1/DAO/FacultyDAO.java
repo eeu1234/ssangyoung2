@@ -42,7 +42,7 @@ public class FacultyDAO {
 
 		try{
 
-			String sql = "SELECT * FROM FACULTY F INNER JOIN INSTRUCTOR I ON F.STAFFCODE = I.STAFFCODE WHERE BETWEENCODE = 1 OR BETWEENCODE =2";
+			String sql = "SELECT * FROM FACULTY";
 
 			ResultSet rs = stat.executeQuery(sql);
 
