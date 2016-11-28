@@ -14,7 +14,7 @@ public class main extends Function {
 	   
 	  Function.init();
       
-	  
+	  // 
 	  
 	  faculty();
       
