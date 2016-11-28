@@ -4,14 +4,15 @@ public class InstructorDTO {
 
 	private String password;
 	private String email;
-	private String staff;
+	private String staffCode;
 	
 	
-	public String getStaff() {
-		return staff;
+
+	public String getStaffCode() {
+		return staffCode;
 	}
-	public void setStaff(String staff) {
-		this.staff = staff;
+	public void setStaffCode(String staffCode) {
+		this.staffCode = staffCode;
 	}
 	public String getPassword() {
 		return password;

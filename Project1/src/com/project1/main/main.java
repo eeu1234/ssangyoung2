@@ -27,28 +27,21 @@ public class main {
       
       
       
-      
-      
-      
-      
-      
-      
-      
-      
    }
-
-      
-   
-   
+  
    
    
       private static void list() {
          FacultyDAO dao = new FacultyDAO();
          
+         System.out.println("이메일\t\t\t비밀번호\t\t교원번호");
          ArrayList<InstructorDTO> list = dao.list();
          
          for(InstructorDTO dto : list) {
-            System.out.printf("%s, %s, %s\n",dto.getEmail(),dto.getPassword(),dto.getStaffCode());
+            System.out.printf("%s, %s, %s\n"
+            								,dto.getEmail()
+            								,dto.getPassword()
+            								,dto.getStaffCode());
             
          }
       
