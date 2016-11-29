@@ -3,6 +3,7 @@ package com.project1.faculty;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.project1.DAO.DepartmentDAO;
 import com.project1.DAO.FacultyDAO;
 import com.project1.DTO.DepartmentDTO;
 import com.project1.DTO.FacultyDTO;
@@ -12,9 +13,8 @@ import com.project1.main.main;
 public class Faculty extends Function {
 
 	public static void Faculty() {
-		// COMMIT TEST
-		Function.init();
 
+		Function.init();
 		Facultymenu();
 
 	}
@@ -25,13 +25,11 @@ public class Faculty extends Function {
 	private static void search() {
 		System.out.print("검색:");
 		String name = scan.nextLine();
-		
+
 		FacultyDAO dao = new FacultyDAO();
-		
+
 		ArrayList<FacultyDTO> list = dao.search(name);
-		
-		
-		
+
 		for (FacultyDTO dto : list) {
 			System.out.printf("강사 번호: %s\n", dto.getStaffCode());
 			System.out.printf("강사 이름: %s\n", dto.getStaffName());
@@ -39,14 +37,9 @@ public class Faculty extends Function {
 			System.out.printf("----------------\n");
 
 		} // for
-		
-		
-	
-	}
-		
-		
 
-	
+	}
+
 	/**
 	 * 강사목록
 	 */
@@ -62,7 +55,6 @@ public class Faculty extends Function {
 
 		} // for
 
-		
 	}// i_list
 
 	/**
@@ -125,7 +117,7 @@ public class Faculty extends Function {
 		if (classCode != null) {
 			FacultyDAO dao = new FacultyDAO();
 			FacultyDTO dto = new FacultyDTO();
-			
+
 			dto.setStaffCode(staffCode);
 			dto.setStaffName(name);
 			dto.setBetweenCode(between);
@@ -134,15 +126,13 @@ public class Faculty extends Function {
 			dto.setClassCode(classCode);
 
 			dao.add(dto);
-		}
-		else{
+		} else {
 			System.out.println("고장남");
-			
+
 		}
 
 	}// i_list
 
-	
 	/**
 	 * 교원 메인메뉴
 	 */
@@ -169,7 +159,7 @@ public class Faculty extends Function {
 				add();
 			} else if (n.equals("0")) {
 				// 교원메인메뉴가기
-				main.faculty();
+				Faculty.Faculty();
 			}
 
 		}

@@ -3,9 +3,10 @@ package com.project1.main;
 import java.util.Scanner;
 
 import com.project1.DAO.FacultyDAO;
+import com.project1.DAO.StudentDAO;
 import com.project1.DTO.FacultyDTO;
-import com.project1.admin.DAO.StudentDAO;
-import com.project1.admin.DAO.StudentDTO;
+import com.project1.DTO.StudentDTO;
+import com.project1.admin.Admin;
 import com.project1.faculty.Faculty;
 import com.project1.student.Student;
 
@@ -22,32 +23,6 @@ public class main extends Function {
       
       
    }//main
-  
-   
-   public static void student(){
-	 
-   }
- 
-   
-   /**
-    * 교원 계정 로그인 메인메뉴
-    */
-   public static void faculty(){
-	   System.out.println("<교원 메인메뉴> ");
-	   System.out.println("----------------");
-	   System.out.println("1.교원 ");
-	   System.out.println("2.교육 과정 ");
-	  
-	   System.out.println("번호 입력: ");
-	   
-	   String n = scan.nextLine();
-	   
-	   if (n.equals("1")) {
-	 	  Faculty.Faculty();
-
-	   
-	   }    
-   }
  
    
 
@@ -55,7 +30,7 @@ public class main extends Function {
       
   
    
-   public static void login(){
+   public static  void login(){
 
 	   boolean flag = true;
 	   
@@ -88,9 +63,9 @@ public class main extends Function {
 				   System.out.println(dtoF.getStaffCode());
 				   System.out.println(dtoF.getPassWord());
 				   if(dtoF.getStaffCode().equals(id) && dtoF.getPassWord().equals(pass)){
+					   //교원메뉴 출력	
 					   Faculty.Faculty();
-					  
-					   flag= false;
+  					   flag= false;
 					break;
 				   }
 					
@@ -122,7 +97,7 @@ public class main extends Function {
 		   
 		   
 	   }else if(level.equals("a")){
-		   System.out.println("관리자");
+		  Admin.Admin();
 		   flag= false;
 	   }
 	   

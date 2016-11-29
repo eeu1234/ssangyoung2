@@ -1,4 +1,4 @@
-package com.project1.admin.DAO;
+package com.project1.DTO;
 
 public class StudentDTO {
 /*

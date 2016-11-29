@@ -1,11 +1,11 @@
-package com.project1.admin.DAO;
+package com.project1.DAO;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.project1.DAO.DBUtil;
+import com.project1.DTO.StudentDTO;
 
 public class StudentDAO {
 
