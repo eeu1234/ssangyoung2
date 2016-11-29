@@ -6,7 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.project1.DTO.FacultyDTO;
-import com.project1.DTO.FacultyInstructorDTO;
+import com.project1.main.DBUtil;
 
 
 public class FacultyDAO {
@@ -27,65 +27,18 @@ public class FacultyDAO {
 		}
 	}
 
+	
 
 
+	
+	
 	/**
 	 * 
-	 * @강사 목록
-	 */
-	public ArrayList<FacultyInstructorDTO> instructor_list() { //강사 출력
+	 * @교원목록
+	 */ 
+	public ArrayList<FacultyDTO> faculty_list() { //교원 출력
 
-		ArrayList<FacultyInstructorDTO> list = new ArrayList<FacultyInstructorDTO>();
-
-
-
-		try{
-
-			String sql = "SELECT * FROM FACULTY WHERE BETWEENCODE = 2";
-
-			ResultSet rs = stat.executeQuery(sql);
-
-			while (rs.next()) {
-
-				FacultyInstructorDTO dto= new FacultyInstructorDTO();
-
-
-				dto.setStaffCode(rs.getString("STAFFCODE"));
-				dto.setStaffName(rs.getString("STAFFNAME"));
-				dto.setBetweenCode(rs.getString("BETWEENCODE"));
-
-				dto.setEmail(rs.getString("EMAIL"));
-
-
-				list.add(dto);
-
-
-			}//while
-
-
-			DBUtil.close();
-		} catch (Exception e) {
-			System.out.println(e.toString());
-		}
-
-
-
-
-		return list;
-
-
-	}//instructor_list
-
-
-
-
-	/**
-	 * 
-	 * @return 교수 출력
-	 */
-	public ArrayList<FacultyInstructorDTO> professor_list() { //교수 출력
-
-		ArrayList<FacultyInstructorDTO> list = new ArrayList<FacultyInstructorDTO>();
+		ArrayList<FacultyDTO> list = new ArrayList<FacultyDTO>();
 
 
 
@@ -97,15 +50,15 @@ public class FacultyDAO {
 
 			while (rs.next()) {
 
-				FacultyInstructorDTO dto= new FacultyInstructorDTO();
+				FacultyDTO dto= new FacultyDTO();
 
 
 				dto.setStaffCode(rs.getString("STAFFCODE"));
 				dto.setStaffName(rs.getString("STAFFNAME"));
 				dto.setBetweenCode(rs.getString("BETWEENCODE"));
-
 				dto.setEmail(rs.getString("EMAIL"));
-
+				dto.setPassWord(rs.getString("passWord"));
+				dto.setClassCode(rs.getString("classCode"));
 
 				list.add(dto);
 
@@ -118,54 +71,56 @@ public class FacultyDAO {
 			System.out.println(e.toString());
 		}
 
-
-
-
 		return list;
 
 
-	}//instructor_list
+	}//교수목록
 
 
 	/**
 	 * 
-	 * @교원 검색
+	 * @교원 이름 검색
 	 */
-	public ArrayList<FacultyInstructorDTO> search(String name) {
-
-		ArrayList<FacultyInstructorDTO> list = new ArrayList<FacultyInstructorDTO>();
+	public ArrayList<FacultyDTO> search(String name) {
+		
+		ArrayList<FacultyDTO> list = new ArrayList<FacultyDTO>();
 		try {
-
-			FacultyInstructorDTO dto = new FacultyInstructorDTO();
+			
+			FacultyDTO dto = new FacultyDTO();
 
 			String sql = " SELECT * FROM FACULTY WHERE STAFFNAME= '"+ name + "'";
-
+			
 			ResultSet rs = stat.executeQuery(sql);
-
+			
 			if (rs.next()) {
-
+				
 				dto.setStaffCode(rs.getString("STAFFCODE"));
 				dto.setStaffName(rs.getString("STAFFNAME"));
 				dto.setBetweenCode(rs.getString("BETWEENCODE"));
 				dto.setEmail(rs.getString("EMAIL"));
-
-
+			
+				
 				list.add(dto);
 			}
-
-			DBUtil.close();
+			
+		DBUtil.close();
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-
-
+		
+		
+		
+		
+		
+		
+		
 		return list;	
 	}
-
 	
 
 
-	public static void add(FacultyInstructorDTO dto) {
+
+public static void add(FacultyDTO dto) {
 		
 		
 		System.out.println(dto.getStaffCode());
@@ -174,9 +129,9 @@ public class FacultyDAO {
 					,String.valueOf(Integer.parseInt(dto.getStaffCode())+1)
 					,dto.getStaffName()
 					,dto.getBetweenCode()
-					,dto.getPassword()
+					,dto.getPassWord()
 					,dto.getEmail()
-					,dto.getClasscode());
+					,dto.getClassCode());
 			
 		
 		try {

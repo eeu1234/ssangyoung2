@@ -6,7 +6,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.project1.DTO.DepartmentDTO;
-import com.project1.DTO.FacultyInstructorDTO;
+import com.project1.main.DBUtil;
+
 
 public class DepartmentDAO {
 
