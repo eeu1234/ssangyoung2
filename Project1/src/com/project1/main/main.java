@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.project1.DAO.FacultyDAO;
 import com.project1.DTO.FacultyDTO;
 import com.project1.DTO.FacultyInstructorDTO;
-import com.project1.DTO.InstructorDTO;
+
 import com.project1.faculty.Faculty;
 
 import java.util.ArrayList;
