@@ -55,7 +55,7 @@ public class main extends Function {
 		   
 			System.out.println(list.size());
 			
-			 //교원 메뉴 호출
+			 //교원 메뉴 호출 
 			   
 			   for (FacultyDTO dtoF : list) {
 				   //교원 테이블에서 ID와 비밀번호 있는지 여부 확인
