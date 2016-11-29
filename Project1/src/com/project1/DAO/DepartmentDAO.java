@@ -14,7 +14,7 @@ public class DepartmentDAO {
 	private Statement stat;
 
 	
-	public DepartmentDAO() { //디비 불러오기
+	public DepartmentDAO() { //�뵒鍮� 遺덈윭�삤湲�
 
 		try {
 
@@ -30,9 +30,9 @@ public class DepartmentDAO {
 	
 	/**
 	 * 
-	 * @강사 목록
+	 * @媛뺤궗 紐⑸줉
 	 */
-	public ArrayList<DepartmentDTO> departmentList() { //학과 목록
+	public ArrayList<DepartmentDTO> departmentList() { //�븰怨� 紐⑸줉
 
 		ArrayList<DepartmentDTO> list = new ArrayList<DepartmentDTO>();
 
