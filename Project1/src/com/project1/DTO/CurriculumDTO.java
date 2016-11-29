@@ -9,10 +9,17 @@ public class CurriculumDTO {
 	private String StaffName;
 	private String Email;
 	private String Semester;
+	private String StaffCode;
 	
 	
 
 	
+	public String getStaffCode() {
+		return StaffCode;
+	}
+	public void setStaffCode(String staffCode) {
+		StaffCode = staffCode;
+	}
 	public String getSubjectName() {
 		return SubjectName;
 	}

@@ -16,9 +16,9 @@ public class Faculty extends Function {
 	public static void Faculty() {
 		//main.userCode;  //==> 자신의 교원 코드 들어있음  >> 이걸로 내 강좌 이런거 쿼리해오면됌
 		Function.init();
-		
+
 		menu();
-		
+
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class Faculty extends Function {
 
 	}
 
-	
+
 	/**
 	 * 교육과정 리스트
 	 */
@@ -52,27 +52,27 @@ public class Faculty extends Function {
 		System.out.println("【교육 과정】");
 		ArrayList<CurriculumDTO> list = dao.list();
 
-		
+
 		for (CurriculumDTO dto : list) {
 			System.out.printf("과목명:%s  학과:%s  담당교수:%s  학년:%s  학점:%s  시수:%s  이메일:%s\n"
-								,dto.getSubjectName()
-								,dto.getClassName()
-								,dto.getStaffName()
-								,dto.getSemester()
-								,dto.getSubjectScore()
-								,dto.getPeriod()
-								,dto.getEmail());
-		
-			
+					,dto.getSubjectName()
+					,dto.getClassName()
+					,dto.getStaffName()
+					,dto.getSemester()
+					,dto.getSubjectScore()
+					,dto.getPeriod()
+					,dto.getEmail());
+
+
 		} // for
 
 	}// Curriculum_list
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	/**
 	 * 교원목록
 	 */
@@ -91,67 +91,67 @@ public class Faculty extends Function {
 	}// i_list
 
 
-//	/**
-//	 * 교원등록
-//	 */
-//	public static void add() {
-//		String classCode = "";
-//		String staffCode = "";
-//		// 가입한다
-//		// 1.자동증가
-//		// 2.이름
-//		// 3.구분코드
-//		// 4.비밀번호
-//		// 5.이메일
-//		// 6.학과이름 ---> code code 삽입
-//
-//		System.out.print("이름:");
-//		String name = scan.nextLine();
-//
-//		System.out.print("구분번호:");
-//		String between = scan.nextLine();
-//
-//		System.out.print("비밀번호:");
-//		String password = scan.nextLine();
-//
-//		System.out.print("이메일:");
-//		String email = scan.nextLine();
-//
-//		System.out.print("학과명 : ");
-//		String className = scan.nextLine();
-//
-//		DepartmentDAO daoD = new DepartmentDAO();
-//		ArrayList<DepartmentDTO> list = daoD.departmentList();
-//
-//		for (DepartmentDTO dto : list) {
-//			if (className.equals(dto.getClassName())) {
-//				classCode = dto.getClassCode();
-//			}
-//
-//		}
-//
-//		if (classCode != null) {
-//			FacultyDAO dao = new FacultyDAO();
-//			FacultyInstructorDTO dto = new FacultyInstructorDTO();
-//			
-//			dto.setStaffCode(staffCode);
-//			dto.setStaffName(name);
-//			dto.setBetweenCode(between);
-//			dto.setPassword(password);
-//			dto.setEmail(email);
-//			dto.setClasscode(classCode);
-//
-//			dao.add(dto);
-//		}
-//		else{
-//			System.out.println("고장남");
-//			
-//		}
-//
-//	}// add
+	//	/**
+	//	 * 교원등록
+	//	 */
+	//	public static void add() {
+	//		String classCode = "";
+	//		String staffCode = "";
+	//		// 가입한다
+	//		// 1.자동증가
+	//		// 2.이름
+	//		// 3.구분코드
+	//		// 4.비밀번호
+	//		// 5.이메일
+	//		// 6.학과이름 ---> code code 삽입
+	//
+	//		System.out.print("이름:");
+	//		String name = scan.nextLine();
+	//
+	//		System.out.print("구분번호:");
+	//		String between = scan.nextLine();
+	//
+	//		System.out.print("비밀번호:");
+	//		String password = scan.nextLine();
+	//
+	//		System.out.print("이메일:");
+	//		String email = scan.nextLine();
+	//
+	//		System.out.print("학과명 : ");
+	//		String className = scan.nextLine();
+	//
+	//		DepartmentDAO daoD = new DepartmentDAO();
+	//		ArrayList<DepartmentDTO> list = daoD.departmentList();
+	//
+	//		for (DepartmentDTO dto : list) {
+	//			if (className.equals(dto.getClassName())) {
+	//				classCode = dto.getClassCode();
+	//			}
+	//
+	//		}
+	//
+	//		if (classCode != null) {
+	//			FacultyDAO dao = new FacultyDAO();
+	//			FacultyInstructorDTO dto = new FacultyInstructorDTO();
+	//			
+	//			dto.setStaffCode(staffCode);
+	//			dto.setStaffName(name);
+	//			dto.setBetweenCode(between);
+	//			dto.setPassword(password);
+	//			dto.setEmail(email);
+	//			dto.setClasscode(classCode);
+	//
+	//			dao.add(dto);
+	//		}
+	//		else{
+	//			System.out.println("고장남");
+	//			
+	//		}
+	//
+	//	}// add
 
-	
-	
+
+
 
 
 	/**
@@ -172,23 +172,25 @@ public class Faculty extends Function {
 
 			if (n.equals("1")) {
 				Facultymenu();
-			
+
 			} else if (n.equals("2")) {
 				Curriculum_menu();
 			} else if (n.equals("0")) {
 				// 교원메인메뉴가기
 				Faculty.Faculty();
 			}
-			
+
 		}
 
 	}// menu
-	
-	
-	
-	
-	
 
+
+
+
+
+	/**
+	 * 교육과정 메뉴
+	 */
 	public static void Curriculum_menu() {
 
 		boolean flag = true;
@@ -196,6 +198,7 @@ public class Faculty extends Function {
 			System.out.println("<MENU> ");
 			System.out.println("1.교육과정 리스트");
 			System.out.println("2.교육과정 검색");
+			System.out.println("3.개인 교육과정");
 			System.out.println("0.메뉴");
 
 			System.out.println("번호 입력: ");
@@ -206,16 +209,19 @@ public class Faculty extends Function {
 				Curriculum_list();
 			} else if (n.equals("2")) {
 				Curriculum_search();
-			}  else if (n.equals("0")) {
+			} else if (n.equals("3")) {
+				MyCurriculum();
+			}		
+				else if (n.equals("0")) {
 				// 교원메인메뉴가기
 				Faculty.Faculty();
-				
+
 			}
-			
+
 		}
 
 	}// menu
-		
+
 
 
 	/**
@@ -236,24 +242,26 @@ public class Faculty extends Function {
 
 			if (n.equals("1")) {
 				faculty_list();
-			
+
 			} else if (n.equals("2")) {
 				search();
 			} else if (n.equals("0")) {
 				// 교원메인메뉴가기
 				Faculty.Faculty();
 			}
-			
+
 		}
 
 	}// menu
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+	/**
+	 * 교육과정 검색
+	 */
 	public static void Curriculum_search() {
 		System.out.print("검색:");
 		String name = scan.nextLine();
@@ -261,15 +269,15 @@ public class Faculty extends Function {
 		CurriculumDAO dao = new CurriculumDAO();
 
 		ArrayList<CurriculumDTO> list = dao.Curriculum_search();
-		
-		System.out.println("1");	
+
+
 		for (CurriculumDTO dto : list) {
 			if(name.contains(dto.getSubjectName())
-				
-				|| name.contains(dto.getStaffName())
-				|| name.contains(dto.getClassName())){
-				
-			
+
+					|| name.contains(dto.getStaffName())
+					|| name.contains(dto.getClassName())){
+
+
 				System.out.printf("과목명:%s  학과:%s  담당교수:%s  학년:%s  학점:%s  시수:%s  이메일:%s\n"
 						,dto.getSubjectName()
 						,dto.getClassName()
@@ -278,14 +286,55 @@ public class Faculty extends Function {
 						,dto.getSubjectScore()
 						,dto.getPeriod()
 						,dto.getEmail());
-						
-				
-				
-				
+
+
+
+
 			}
-			
+
 		} // for
-		
+
 	}//curriculum_serch
 
-}// class
+
+
+	/**
+	 * 자신의 교육과정
+	 */
+	public static void  MyCurriculum() {
+
+		CurriculumDAO dao = new CurriculumDAO();
+
+		ArrayList<CurriculumDTO> list = dao.MyCurriculum();
+
+
+		for (CurriculumDTO dto : list) {
+
+				System.out.printf("과목명:%s  학과:%s  담당교수:%s  학년:%s  학점:%s  시수:%s  이메일:%s\n"
+						,dto.getSubjectName()
+						,dto.getClassName()
+						,dto.getStaffName()
+						,dto.getSemester()
+						,dto.getSubjectScore()
+						,dto.getPeriod()
+						,dto.getEmail());
+
+
+
+			}
+
+
+
+
+		}//for
+
+
+
+
+
+	}//curriculum_serch
+
+
+
+
+

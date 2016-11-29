@@ -131,7 +131,10 @@ public class CurriculumDAO {
 
 	}
 
-
+	/**
+	 * 
+	 * @return 로그인 교원 교육과정 출력
+	 */
 	public ArrayList<CurriculumDTO > MyCurriculum() {
 
 		ArrayList<CurriculumDTO > list = new ArrayList<CurriculumDTO >();
@@ -139,8 +142,8 @@ public class CurriculumDAO {
 
 			
 
-
-			String sql = "SELECT * FROM CURRICULUM C INNER JOIN SUBJECT S ON C.SUBJECTCODE = S.SUBJECTCODE INNER JOIN DEPARTMENT D ON S.CLASSCODE = D.CLASSCODE INNER JOIN FACULTY F ON F.CLASSCODE = D.CLASSCODE INNER JOIN SEMESTER_CLASS SC ON SC.SEMESTERCODE = C.SEMESTERCODE WHERE STAFFCODE = ' "+ main.userCode + "' ";
+			System.out.println(main.userCode);
+			String sql = "SELECT * FROM CURRICULUM C INNER JOIN SUBJECT S ON C.SUBJECTCODE = S.SUBJECTCODE INNER JOIN DEPARTMENT D ON S.CLASSCODE = D.CLASSCODE INNER JOIN FACULTY F ON F.CLASSCODE = D.CLASSCODE INNER JOIN SEMESTER_CLASS SC ON SC.SEMESTERCODE = C.SEMESTERCODE WHERE F.STAFFCODE = ' "+ main.userCode + "' ";
 			ResultSet rs = stat.executeQuery(sql);
 
 
@@ -179,7 +182,7 @@ public class CurriculumDAO {
 
 
 
-	}
+	}//mycurriculum
 	
 	
 	
