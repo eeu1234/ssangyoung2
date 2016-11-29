@@ -15,7 +15,23 @@ public class main extends Function {
 	
 	public static String userCode ="";
    public static void main(String[] args) {
-	   
+	   System.out.println("	      ~@@@@@@-!@@@@@@@@@@@@@@@                                                                      	");
+	   System.out.println("	    #@@@@@@* @@@@@@@@@@@@@@@@@                                                                      	");
+	   System.out.println("	   @@@@@@@@ @@@@@@@@@@@@@@@@@@                                                                      	");
+	   System.out.println("	   @@@@@@@*.@@@@@@@@@@$@@@@@@@                                                                      	");
+	   System.out.println("	   @@@@@@@@ @@@@@@@@~      =@@                                                                      	");
+	   System.out.println("	   $@@@@@@@= @@@@@@@@@:                                                                             	");
+	   System.out.println("	    $@@@@@@@@ $@@@@@@@@@@         @@ @@        @@                          @@                       	");
+	   System.out.println("	      @@@@@@@@@:.$@@@@@@@@@.      @@ @@        @@                          @@   @@                  	");
+	   System.out.println("	       .@@@@@@@@@@ *@@@@@@@@$     @@ @@  @@@@  @@ @@.  @@  @@-  @@ @  #@@  @@ ,@@@@ @@ @@           	");
+	   System.out.println("	          :@@@@@@@@= @@@@@@@@*    @@ @@  @@@@@ @@  @@ @@  @@@@@ @@@@ @@@@@ @@ ,@@@@ @@ @@           	");
+	   System.out.println("	   @#.      $@@@@@@@$ @@@@@@@@    @@ @@  @@ @@ @@  @@ @@ ,@@@@@ @@@  @@;   @@   @@  ;@.@            	");
+	   System.out.println("	   @@@@@@$##@@@@@@@@@ @@@@@@@@    @@ @@  @@ @@ @@   @@@  :@@@@@ @@    *@@@ @@   @@   @@@            	");
+	   System.out.println("	   @@@@@@@@@@@@@@@@@@ @@@@@@@@    @@ @@  @@ @@ @@   @@@   @@ @@ @@   @@.@@ @@   @@.  @@             	");
+	   System.out.println("	   @@@@@@@@@@@@@@@@@ @@@@@@@@      @@@   @@ @@ @@    @,    @@@  @@    @@@; @@   @@@ @@@             	");
+	   System.out.println("	   @@@@@@@@@@@@@@$ $@@@@@#*                                                         @*           	");
+System.out.println("-----------------------------------------------------------------------------------------------------------");   
+System.out.println("-----------------------------------------------------------------------------------------------------------");   
 	  Function.init();
 	  login();
 	  
@@ -40,9 +56,9 @@ public class main extends Function {
 	   
 	   while(flag){
 	   
-	   System.out.print("아이디를 입력하세요 : ");
+	   System.out.print("\t\t\t\t\t아이디  : ");
 	   String id = scan.nextLine();
-	   System.out.print("비밀번호를 입력하세요 : ");
+	   System.out.print("\t\t\t\t\t비밀번호 : ");
 	   String pass = scan.nextLine();
 	   
 	   //학생 ,교원 , 관리자 구분

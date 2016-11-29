@@ -1,4 +1,4 @@
-package com.project1.DAO;
+package com.project1.main;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -41,39 +41,5 @@ public class DBUtil {
       }
       
    }
-   
-
-   
-   public static Connection open(String server, String id, String pw) {
-      
-      String url = "jdbc:oracle:thin:@" + server + ":1521:adam";
-      
-      try {
-         
-         Class.forName("oracle.jdbc.driver.OracleDriver");
-         
-         conn = DriverManager.getConnection(url, id, pw);
-         
-      } catch (Exception e) {
-         System.out.println("DBUtil : " + e.toString());
-      }
-      
-      return conn;
-      
-   }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
 }
+   

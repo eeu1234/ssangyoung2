@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import com.project1.DTO.FacultyDTO;
 
+import com.project1.main.DBUtil;
+
 
 public class FacultyDAO {
 
