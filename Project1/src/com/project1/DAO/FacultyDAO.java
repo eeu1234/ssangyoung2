@@ -28,11 +28,14 @@ public class FacultyDAO {
 
 	
 
+
+	
+	
 	/**
 	 * 
-	 * @교수 목록
-	 */
-	public ArrayList<FacultyDTO> professor_list() { //교원 출력
+	 * @교원목록
+	 */ 
+	public ArrayList<FacultyDTO> faculty_list() { //교원 출력
 
 		ArrayList<FacultyDTO> list = new ArrayList<FacultyDTO>();
 
@@ -40,53 +43,7 @@ public class FacultyDAO {
 
 		try{
 
-			String sql = "SELECT * FROM FACULTY WHERE BETWEENCODE = 1";
-
-			ResultSet rs = stat.executeQuery(sql);
-
-			while (rs.next()) {
-
-				FacultyDTO dto= new FacultyDTO();
-
-
-				dto.setStaffCode(rs.getString("STAFFCODE"));
-				dto.setStaffName(rs.getString("STAFFNAME"));
-				dto.setBetweenCode(rs.getString("BETWEENCODE"));
-				dto.setEmail(rs.getString("EMAIL"));
-				dto.setPassWord(rs.getString("passWord"));
-				dto.setClassCode(rs.getString("classCode"));
-
-				list.add(dto);
-
-
-			}//while
-
-
-			DBUtil.close();
-		} catch (Exception e) {
-			System.out.println(e.toString());
-		}
-
-		return list;
-
-
-	}//교수목록출력
-
-	
-	
-	/**
-	 * 
-	 * @강사 목록
-	 */
-	public ArrayList<FacultyDTO> instructor_list() { //교원 출력
-
-		ArrayList<FacultyDTO> list = new ArrayList<FacultyDTO>();
-
-
-
-		try{
-
-			String sql = "SELECT * FROM FACULTY WHERE BETWEENCODE = 2";
+			String sql = "SELECT * FROM FACULTY";
 
 			ResultSet rs = stat.executeQuery(sql);
 

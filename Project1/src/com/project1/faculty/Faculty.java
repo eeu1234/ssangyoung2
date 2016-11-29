@@ -13,10 +13,11 @@ import com.project1.main.main;
 public class Faculty extends Function {
 
 	public static void Faculty() {
-
+//		main.userCode  ==> 자신의 교원 코드 들어있음  >> 이걸로 내 강좌 이런거 쿼리해오면됌
+	
 		Function.init();
 		Facultymenu();
-
+		
 	}
 
 	/**
@@ -41,13 +42,13 @@ public class Faculty extends Function {
 	}
 
 	/**
-	 * 강사목록
+	 * 교원목록
 	 */
-	private static void instructor_list() {
+	private static void faculty_list() {
 		FacultyDAO dao = new FacultyDAO();
 
 		System.out.println("【교원 리스트】");
-		ArrayList<FacultyDTO> i_list = dao.instructor_list();
+		ArrayList<FacultyDTO> i_list = dao.faculty_list();
 
 		System.out.println("【강사 번호】    【강사 이름】    【강사 이메일】");
 		for (FacultyDTO dto : i_list) {
@@ -57,23 +58,7 @@ public class Faculty extends Function {
 
 	}// i_list
 
-	/**
-	 * 교수목록
-	 */
-	private static void professor_list() {
-
-		FacultyDAO dao = new FacultyDAO();
-
-		System.out.println("\n【교수 리스트】");
-		ArrayList<FacultyDTO> list = dao.professor_list();
-
-		System.out.println("【교수 번호】    【교수 이름】    【교수 이메일】");
-		for (FacultyDTO dto : list) {
-			System.out.printf("%s\t\t %s\t\t %s\t\t\n", dto.getStaffCode(), dto.getStaffName(), dto.getEmail());
-
-		}
-
-	}// professor_list
+	
 
 	/**
 	 * 교원등록
@@ -151,8 +136,7 @@ public class Faculty extends Function {
 			String n = scan.nextLine();
 
 			if (n.equals("1")) {
-				instructor_list();
-				professor_list();
+				faculty_list();
 			} else if (n.equals("2")) {
 				search();
 			} else if (n.equals("3")) {

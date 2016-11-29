@@ -12,6 +12,8 @@ import com.project1.student.Student;
 
 import java.util.ArrayList;
 public class main extends Function {
+	
+	public static String userCode ="";
    public static void main(String[] args) {
 	   
 	  Function.init();
@@ -29,10 +31,12 @@ public class main extends Function {
       
       
   
-   
+   /**
+    * 로그인
+    */
    public static  void login(){
-
-	   boolean flag = true;
+	   userCode = "";
+	   boolean flag = true;//오류시 루프를 위한 flag
 	   
 	   while(flag){
 	   
@@ -45,27 +49,25 @@ public class main extends Function {
 	   String level =  id.substring(0,1);
 	   
 	   
+	   
+	   
 	    //교원
 	   if(level.equals("1")){
 		   flag= false;
 		   
 			FacultyDAO daoF = new FacultyDAO();
-			
-			ArrayList<FacultyDTO> list = daoF.instructor_list();
+			ArrayList<FacultyDTO> list = daoF.faculty_list();
 		   
-			System.out.println(list.size());
 			
 			 //교원 메뉴 호출 
-			   
 			   for (FacultyDTO dtoF : list) {
 				   //교원 테이블에서 ID와 비밀번호 있는지 여부 확인
-				   
-				   System.out.println(dtoF.getStaffCode());
-				   System.out.println(dtoF.getPassWord());
 				   if(dtoF.getStaffCode().equals(id) && dtoF.getPassWord().equals(pass)){
+					   userCode = dtoF.getStaffCode();
 					   //교원메뉴 출력	
 					   Faculty.Faculty();
-  					   flag= false;
+  					   
+					   flag= false;
 					break;
 				   }
 					
@@ -84,7 +86,7 @@ public class main extends Function {
 		   for (StudentDTO dto : list) {
 			   //학생 테이블에서 ID와 비밀번호 있는지 여부 확인
 			   if(dto.getStudentNumber().equals(id) && dto.getPassword().equals(pass)){
-				
+				   userCode=dto.getStudentNumber();
 				  
 				   flag= false;
 				   Student.menu();
