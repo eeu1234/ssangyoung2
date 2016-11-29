@@ -2,68 +2,73 @@ package com.project1.DTO;
 
 public class CurriculumDTO {
 
-	private String SubjectName;
-	private String ClassName;
-	private String SubjectScore;
-	private String Period;
-	private String StaffName;
-	private String Email;
-	private String Semester;
-	private String StaffCode;
+	private String subjectName;
+	private String className;
+	private String subjectScore;
+	private String period;
+	private String staffName;
+	private String email;
+	private String semester;
+	private String staffCode;
+	private String lectureRoomName;
 	
 	
-
 	
-	public String getStaffCode() {
-		return StaffCode;
-	}
-	public void setStaffCode(String staffCode) {
-		StaffCode = staffCode;
-	}
+	
 	public String getSubjectName() {
-		return SubjectName;
+		return subjectName;
 	}
 	public void setSubjectName(String subjectName) {
-		SubjectName = subjectName;
+		this.subjectName = subjectName;
 	}
 	public String getClassName() {
-		return ClassName;
+		return className;
 	}
 	public void setClassName(String className) {
-		ClassName = className;
+		this.className = className;
 	}
 	public String getSubjectScore() {
-		return SubjectScore;
+		return subjectScore;
 	}
 	public void setSubjectScore(String subjectScore) {
-		SubjectScore = subjectScore;
+		this.subjectScore = subjectScore;
 	}
 	public String getPeriod() {
-		return Period;
+		return period;
 	}
 	public void setPeriod(String period) {
-		Period = period;
+		this.period = period;
 	}
 	public String getStaffName() {
-		return StaffName;
+		return staffName;
 	}
 	public void setStaffName(String staffName) {
-		StaffName = staffName;
+		this.staffName = staffName;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getSemester() {
-		return Semester;
+		return semester;
 	}
 	public void setSemester(String semester) {
-		Semester = semester;
+		this.semester = semester;
 	}
-	
-	
+	public String getStaffCode() {
+		return staffCode;
+	}
+	public void setStaffCode(String staffCode) {
+		this.staffCode = staffCode;
+	}
+	public String getLectureRoomName() {
+		return lectureRoomName;
+	}
+	public void setLectureRoomName(String lectureRoomName) {
+		this.lectureRoomName = lectureRoomName;
+	}
 	
 	
 	

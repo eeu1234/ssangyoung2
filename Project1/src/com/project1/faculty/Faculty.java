@@ -54,14 +54,15 @@ public class Faculty extends Function {
 
 
 		for (CurriculumDTO dto : list) {
-			System.out.printf("과목명:%s  학과:%s  담당교수:%s  학년:%s  학점:%s  시수:%s  이메일:%s\n"
+			System.out.printf("과목명:%s  학과:%s  담당교수:%s  학년:%s  학점:%s  시수:%s  이메일:%s, 강의실:%s\n"
 					,dto.getSubjectName()
 					,dto.getClassName()
 					,dto.getStaffName()
 					,dto.getSemester()
 					,dto.getSubjectScore()
 					,dto.getPeriod()
-					,dto.getEmail());
+					,dto.getEmail()
+					,dto.getLectureRoomName());
 
 
 		} // for
@@ -212,7 +213,7 @@ public class Faculty extends Function {
 			} else if (n.equals("3")) {
 				MyCurriculum();
 			}		
-				else if (n.equals("0")) {
+			else if (n.equals("0")) {
 				// 교원메인메뉴가기
 				Faculty.Faculty();
 
@@ -263,37 +264,47 @@ public class Faculty extends Function {
 	 * 교육과정 검색
 	 */
 	public static void Curriculum_search() {
-		System.out.print("검색:");
-		String name = scan.nextLine();
 
-		CurriculumDAO dao = new CurriculumDAO();
+		boolean flag = true;
 
-		ArrayList<CurriculumDTO> list = dao.Curriculum_search();
+		while(flag) {
 
 
-		for (CurriculumDTO dto : list) {
-			if(name.contains(dto.getSubjectName())
+			System.out.print("검색:");
+			String name = scan.nextLine();
 
-					|| name.contains(dto.getStaffName())
-					|| name.contains(dto.getClassName())){
+			CurriculumDAO dao = new CurriculumDAO();
 
-
-				System.out.printf("과목명:%s  학과:%s  담당교수:%s  학년:%s  학점:%s  시수:%s  이메일:%s\n"
-						,dto.getSubjectName()
-						,dto.getClassName()
-						,dto.getStaffName()
-						,dto.getSemester()
-						,dto.getSubjectScore()
-						,dto.getPeriod()
-						,dto.getEmail());
+			ArrayList<CurriculumDTO> list = dao.Curriculum_search();
 
 
+			for (CurriculumDTO dto : list) {
+				if(name.contains(dto.getSubjectName())
+
+						|| name.contains(dto.getStaffName())
+						|| name.contains(dto.getClassName())){
 
 
-			}
+					System.out.printf("과목명:%s  학과:%s  담당교수:%s  학년:%s  학점:%s  시수:%s  이메일:%s\n"
+							,dto.getSubjectName()
+							,dto.getClassName()
+							,dto.getStaffName()
+							,dto.getSemester()
+							,dto.getSubjectScore()
+							,dto.getPeriod()
+							,dto.getEmail());
 
-		} // for
+					flag = true;
+						
+					
 
+
+				} 				
+
+			} // for
+			break;
+		}//while
+		
 	}//curriculum_serch
 
 
@@ -310,29 +321,29 @@ public class Faculty extends Function {
 
 		for (CurriculumDTO dto : list) {
 
-				System.out.printf("과목명:%s  학과:%s  담당교수:%s  학년:%s  학점:%s  시수:%s  이메일:%s\n"
-						,dto.getSubjectName()
-						,dto.getClassName()
-						,dto.getStaffName()
-						,dto.getSemester()
-						,dto.getSubjectScore()
-						,dto.getPeriod()
-						,dto.getEmail());
+			System.out.printf("과목명:%s  학과:%s  담당교수:%s  학년:%s  학점:%s  시수:%s  이메일:%s\n"
+					,dto.getSubjectName()
+					,dto.getClassName()
+					,dto.getStaffName()
+					,dto.getSemester()
+					,dto.getSubjectScore()
+					,dto.getPeriod()
+					,dto.getEmail());
 
 
 
-			}
-
-
-
-
-		}//for
+		}
 
 
 
 
+	}//for
 
-	}//curriculum_serch
+
+
+
+
+}//curriculum_serch
 
 
 
