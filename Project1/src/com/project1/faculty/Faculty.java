@@ -9,7 +9,8 @@ import com.project1.DTO.CurriculumDTO;
 import com.project1.DTO.DepartmentDTO;
 import com.project1.DTO.FacultyDTO;
 import com.project1.main.Function;
-import com.project1.main.main;
+import com.project1.student.Student;
+
 
 public class Faculty extends Function {
 
@@ -85,7 +86,10 @@ public class Faculty extends Function {
 
 		System.out.println("【강사 번호】    【강사 이름】    【강사 이메일】");
 		for (FacultyDTO dto : i_list) {
-			System.out.printf("%s\t\t %s\t\t %s\t\t\n", dto.getStaffCode(), dto.getStaffName(), dto.getEmail());
+			System.out.printf("%s\t\t %s\t\t %s\t\t\n"
+					, dto.getStaffCode()
+					, dto.getStaffName()
+					, dto.getEmail());
 
 		} // for
 
@@ -212,8 +216,7 @@ public class Faculty extends Function {
 				Curriculum_search();
 			} else if (n.equals("3")) {
 				MyCurriculum();
-			}		
-			else if (n.equals("0")) {
+			} else if (n.equals("0")) {
 				// 교원메인메뉴가기
 				Faculty.Faculty();
 

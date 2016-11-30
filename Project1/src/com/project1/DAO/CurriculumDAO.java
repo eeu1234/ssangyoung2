@@ -134,7 +134,7 @@ public class CurriculumDAO {
 
 	/**
 	 * 
-	 * @return 로그인 교원 교육과정 출력
+	 * @return 로그인 ID 교원 교육과정 출력
 	 */
 	public ArrayList<CurriculumDTO > MyCurriculum() {
 
