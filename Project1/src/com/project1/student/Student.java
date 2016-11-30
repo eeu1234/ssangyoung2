@@ -46,7 +46,10 @@ public class Student {
 			} else if (n.equals("2")) {
 				
 				add();
-			} else if (n.equals("0")) {
+			} else if (n.equals("3")) {
+				delete();
+			}
+			else if (n.equals("0")) {
 				// 교원메인메뉴가기
 				Faculty.Faculty();
 			}
@@ -125,16 +128,34 @@ public class Student {
 			dto.setStudentNumber(studentNumber);
 			
 			dao.add(dto);
-			
 
-
-							
-
-			
 			
 		}//while
 		
-	}//curriculum_serch
+	}//add()
+	
+	public static void delete() {
+		
+		boolean flag = true;
+
+		while(flag) {
+
+
+			
+			System.out.print("삭제:");
+			String del = scan.nextLine();
+			
+			
+			StudentDAO dao = new StudentDAO();
+			
+			StudentDTO dto = new StudentDTO();
+			dto.setLectureCode(del);
+			
+			dao.add(dto);
+		
+		
+		}
+	}
 
 
 

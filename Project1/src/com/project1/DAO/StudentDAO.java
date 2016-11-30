@@ -121,8 +121,9 @@ public class StudentDAO {
 		try {
 			String sql  = "DELETE  FROM COURSE_APPLICATION WHERE LECTURECODE = ?";      
 			System.out.println(sql);      
-			pstmt     =  conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,dto.getLectureCode());
+			
 			int val =  pstmt.executeUpdate();   
 			if(val != 0 ){
 				System.out.println("삭제가 완료 되었습니다 ");      
