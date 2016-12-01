@@ -69,7 +69,11 @@ public class StudentDAO {
 
 
 	}//studentSearch()
-
+	
+	/**
+	 * 
+	 * @param dto 수강삭제
+	 */
 	public static void delete(StudentDTO dto) {
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;
@@ -94,7 +98,11 @@ public class StudentDAO {
 
 
 	}//delete
-
+	
+	/**
+	 * 
+	 * @param Sdto 수강등록
+	 */
 	public static void add(StudentDTO Sdto) {
 
 		Connection conn = DBUtil.open();
@@ -120,7 +128,7 @@ public class StudentDAO {
 
 
 
-	}
+	}//add
 
 
 
