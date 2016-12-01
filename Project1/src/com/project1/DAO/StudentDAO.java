@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import com.project1.DTO.StudentDTO;
 import com.project1.main.DBUtil;
-import com.project1.main.main;
+
 
 
 public class StudentDAO {
@@ -26,15 +26,12 @@ public class StudentDAO {
 			this.conn = DBUtil.open();
 			this.stat = conn.createStatement();
 
+
+
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
 	}//디비 접속
-
-
-
-
-
 
 	/**
 	 * 
@@ -68,77 +65,62 @@ public class StudentDAO {
 			System.out.println(e.toString());
 		}
 
-
-
-
-
-
-
 		return list;	
 
 
 	}//studentSearch()
 
+	public static void delete(StudentDTO dto) {
+		Connection conn = DBUtil.open();
+		PreparedStatement pstmt = null;
 
-	/**
-	 * 
-	 * @param dto 수강신청
-	 */
-	public  void add(StudentDTO dto){
+		String deleteSQL = "DELETE  FROM COURSE_APPLICATION WHERE LECTURECODE = ?";
+
+		try {
+			pstmt = conn.prepareStatement(deleteSQL);
+			pstmt.setString(1,dto.getLectureCode());
+			pstmt.executeUpdate();
+
+			System.out.println("삭제완료!~");
+
+			DBUtil.close();
+
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+
+
+
+
+	}//delete
+
+	public static void add(StudentDTO Sdto) {
 
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;
-		try {         
-			String sql = "INSERT INTO COURSE_APPLICATION(LECTURECODE,CURRICULUMCODE,STUDENTNUMBER)"
-					+ "VALUES("+ "31" + "|| LECTURECODE.NEXTVAL,?,?)";                                                 
 
-			pstmt = conn.prepareStatement(sql);
+		String insertSQL =  "INSERT INTO COURSE_APPLICATION(LECTURECODE,CURRICULUMCODE,STUDENTNUMBER)"
+				+ "VALUES("+ "31" + "|| LECTURECODE.NEXTVAL,?,?)";      
 
-			pstmt.setString(1,dto.getCurriculumCode());
-			pstmt.setString(2,dto.getStudentNumber());
-
-			int aa =  pstmt.executeUpdate();
-			if(aa !=0){
-				System.out.println("수강 신청 완료");
-				DBUtil.close();  
-			}else{
-				System.out.println("실패");
-			}
-			DBUtil.close();  
-		} catch (Exception e) {
-			//System.out.println("dao add 메서드 catch");
-			System.out.println(e.toString());
-		}
-	}//add
-
-
-
-	public void Delete(StudentDTO dto){
-		System.out.println("메롱");
-		Connection conn = DBUtil.open();
-		PreparedStatement pstmt = null;   
-		
 		try {
-			String sql  = "DELETE  FROM COURSE_APPLICATION WHERE LECTURECODE = ?";      
-			System.out.println(sql);      
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,dto.getLectureCode());
-			
-			int val =  pstmt.executeUpdate();   
-			if(val != 0 ){
-				System.out.println("삭제가 완료 되었습니다 ");      
-			}else{
-				System.out.println("삭제가 안되었습니다 ");
-			}
-			DBUtil.close();            
+			pstmt = conn.prepareStatement(insertSQL);
+			pstmt.setString(1,Sdto.getCurriculumCode());
+			pstmt.setString(2,Sdto.getStudentNumber());
+			pstmt.executeUpdate();
+			System.out.println("수강신청 완료");
+
+			DBUtil.close();
+
+
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.toString());
 		}
-	}//lectureRoomDelete   
 
 
 
+
+	}
 
 
 

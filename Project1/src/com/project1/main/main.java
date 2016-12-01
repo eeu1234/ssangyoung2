@@ -1,6 +1,6 @@
 package com.project1.main;
 
-import java.util.Scanner;
+
 
 import com.project1.DAO.FacultyDAO;
 import com.project1.DAO.StudentDAO;
@@ -12,7 +12,7 @@ import com.project1.student.Student;
 
 import java.util.ArrayList;
 public class main extends Function {
-	
+		
 	public static String userCode ="";
  
 	public static void main(String[] args) {

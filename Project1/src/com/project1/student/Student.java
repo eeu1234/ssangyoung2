@@ -127,13 +127,17 @@ public class Student {
 			dto.setCurriculumCode(ccode);
 			dto.setStudentNumber(studentNumber);
 			
-			dao.add(dto);
+			StudentDAO.add(dto);
 
 			
 		}//while
 		
 	}//add()
 	
+	
+	/**
+	 * 수강삭제
+	 */
 	public static void delete() {
 		
 		boolean flag = true;
@@ -142,19 +146,22 @@ public class Student {
 
 
 			
-			System.out.print("삭제:");
+			System.out.print("삭제할 수강신청코드 입력:");
 			String del = scan.nextLine();
-			
-			
-			StudentDAO dao = new StudentDAO();
 			
 			StudentDTO dto = new StudentDTO();
 			dto.setLectureCode(del);
 			
-			dao.add(dto);
+			StudentDAO dao = new StudentDAO();
+			
+			
+			
+			
+			StudentDAO.delete(dto);
 		
 		
 		}
+		
 	}
 
 
