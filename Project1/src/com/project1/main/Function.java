@@ -16,4 +16,10 @@ public class Function {
 	   
 	   }
 
+	   public static void pause() {
+		      System.out.println();
+		      System.out.println("계속하시려면 엔터키를 입력하세요.");
+		      scan.nextLine();//블럭 걸리게함
+		      
+		   }
 }

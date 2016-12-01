@@ -75,7 +75,7 @@ public class FacultyDAO {
 		return list;
 
 
-	}//교수목록
+	}//faculty_list()
 
 
 	/**
@@ -89,7 +89,7 @@ public class FacultyDAO {
 			
 			FacultyDTO dto = new FacultyDTO();
 
-			String sql = " SELECT * FROM FACULTY WHERE STAFFNAME= '"+ name + "'";
+			String sql = " SELECT * FROM FACULTY F WHERE F.STAFFNAME LIKE '%"+ name + "%'";
 			
 			ResultSet rs = stat.executeQuery(sql);
 			

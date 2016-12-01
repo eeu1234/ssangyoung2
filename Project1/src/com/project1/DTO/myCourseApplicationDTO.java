@@ -6,8 +6,18 @@ public class myCourseApplicationDTO {
 	private String subjectScore;
 	private String periodNum;
 	private String dayCode;
+	private String lectureName;
+	
+	
+	
 	public String getSubjectName() {
 		return subjectName;
+	}
+	public String getLectureName() {
+		return lectureName;
+	}
+	public void setLectureName(String lectureName) {
+		this.lectureName = lectureName;
 	}
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;

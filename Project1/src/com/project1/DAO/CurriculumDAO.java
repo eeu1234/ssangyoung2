@@ -85,13 +85,13 @@ public class CurriculumDAO {
 	 * @param name 교육과정 검색
 	 * @return
 	 */
-	public ArrayList<CurriculumDTO > Curriculum_search() {
+	public ArrayList<CurriculumDTO > Curriculum_search(String word) {
 
 		ArrayList<CurriculumDTO > list = new ArrayList<CurriculumDTO >();
 		try {
 
 		
-			String sql = "SELECT * FROM CURRICULUM C INNER JOIN SUBJECT S ON C.SUBJECTCODE = S.SUBJECTCODE INNER JOIN DEPARTMENT D ON S.CLASSCODE = D.CLASSCODE INNER JOIN FACULTY F ON F.CLASSCODE = D.CLASSCODE INNER JOIN SEMESTER_CLASS SC ON SC.SEMESTERCODE = C.SEMESTERCODE";
+			String sql = "SELECT * FROM CURRICULUM C INNER JOIN SUBJECT S ON C.SUBJECTCODE = S.SUBJECTCODE INNER JOIN DEPARTMENT D ON S.CLASSCODE = D.CLASSCODE INNER JOIN FACULTY F ON F.CLASSCODE = D.CLASSCODE INNER JOIN SEMESTER_CLASS SC ON SC.SEMESTERCODE = C.SEMESTERCODE WHERE D.CLASSNAME LIKE '%"+ word +"%' OR F.STAFFNAME LIKE '%"+ word +"%' OR S.SUBJECTNAME LIKE '%"+ word +"%'";
 			ResultSet rs = stat.executeQuery(sql);
 
 
@@ -130,7 +130,7 @@ public class CurriculumDAO {
 
 
 
-	}
+	}//Curriculum_search
 
 	/**
 	 * 
@@ -187,37 +187,7 @@ public class CurriculumDAO {
 
 	}//mycurriculum
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 }//curriculumDAO
 
