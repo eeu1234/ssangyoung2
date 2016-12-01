@@ -65,7 +65,7 @@ public class Student {
 	
 	
 	/**
-	 * 수강신청 리스트
+	 * 수강신청 검색 리스트
 	 */
 	public static void lecture_list() {
 
@@ -84,7 +84,8 @@ public class Student {
 			for (StudentDTO dto : list) {
 	
 
-					System.out.printf("과목코드:%s  학과:%s  학점:%s  강좌명:%s  허용인원:%s  교수:%s  강의실:%s 요일:%s 차수:%s\n"
+					System.out.printf("교육과정코드:%s 과목코드:%s  학과:%s  학점:%s  강좌명:%s  허용인원:%s  교수:%s  강의실:%s 요일:%s 차수:%s\n"
+							,dto.getCurriculumCode()
 							,dto.getSubjectCode()
 							,dto.getClassName()
 							,dto.getSubjectScore()

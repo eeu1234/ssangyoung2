@@ -11,10 +11,17 @@ public class CurriculumDTO {
 	private String semester;
 	private String staffCode;
 	private String lectureRoomName;
+	private int curriculumCode;
 	
 	
 	
 	
+	public int getCurriculumCode() {
+		return curriculumCode;
+	}
+	public void setCurriculumCode(int curriculumCode) {
+		this.curriculumCode = curriculumCode;
+	}
 	public String getSubjectName() {
 		return subjectName;
 	}

@@ -55,6 +55,7 @@ import com.project1.main.DBUtil;
 				dto.setStaffName(rs.getString("STAFFNAME"));
 				dto.setLectureRoomName(rs.getString("LECTUREROOMNAME"));
 				dto.setSubjectCode(rs.getString("SUBJECTCODE"));
+				dto.setCurriculumCode(rs.getString("CURRICULUMCODE"));
 
 
 				list.add(dto);

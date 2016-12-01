@@ -159,6 +159,8 @@ public class CurriculumDAO {
 				dto.setSemester(rs.getString("SEMESTER"));
 				dto.setEmail(rs.getString("EMAIL"));
 				dto.setStaffName(rs.getString("STAFFNAME"));
+				
+				
 
 
 				list.add(dto);
