@@ -2,32 +2,28 @@ package com.project1.DTO;
 
 public class StudentDTO {
 
-
-	private String subjectCode;
+//ddddd
+	private int subjectCode;
 	private String className;
 	private String subjectScore;
 	private String subjectName;
-	private String people;
+	private int people;
 	private String staffName;
 	private String lectureRoomName;
-	private String periodNum;
+	private int periodNum;
 	private String day;
 
 	private String studentNumber;
 	private String studentName;
 	private String password;
-	private String email;
-	private String classCode;
-	
-	private String lectureCode;
-	private String curriculumCode;
 	
 	
 	
-	public String getSubjectCode() {
+	
+	public int getSubjectCode() {
 		return subjectCode;
 	}
-	public void setSubjectCode(String subjectCode) {
+	public void setSubjectCode(int subjectCode) {
 		this.subjectCode = subjectCode;
 	}
 	public String getClassName() {
@@ -48,10 +44,10 @@ public class StudentDTO {
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
 	}
-	public String getPeople() {
+	public int getPeople() {
 		return people;
 	}
-	public void setPeople(String people) {
+	public void setPeople(int people) {
 		this.people = people;
 	}
 	public String getStaffName() {
@@ -66,10 +62,10 @@ public class StudentDTO {
 	public void setLectureRoomName(String lectureRoomName) {
 		this.lectureRoomName = lectureRoomName;
 	}
-	public String getPeriodNum() {
+	public int getPeriodNum() {
 		return periodNum;
 	}
-	public void setPeriodNum(String periodNum) {
+	public void setPeriodNum(int periodNum) {
 		this.periodNum = periodNum;
 	}
 	public String getDay() {
@@ -102,24 +98,31 @@ public class StudentDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getClassCode() {
+	public int getClassCode() {
 		return classCode;
 	}
-	public void setClassCode(String classCode) {
+	public void setClassCode(int classCode) {
 		this.classCode = classCode;
 	}
-	public String getLectureCode() {
+	public int getLectureCode() {
 		return lectureCode;
 	}
-	public void setLectureCode(String lectureCode) {
+	public void setLectureCode(int lectureCode) {
 		this.lectureCode = lectureCode;
 	}
-	public String getCurriculumCode() {
+	public int getCurriculumCode() {
 		return curriculumCode;
 	}
-	public void setCurriculumCode(String curriculumCode) {
+	public void setCurriculumCode(int curriculumCode) {
 		this.curriculumCode = curriculumCode;
 	}
+	private String email;
+	private int classCode;
+	
+	private int lectureCode;
+	private int curriculumCode;
+	
+	
 	
 	
 	

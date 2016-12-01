@@ -54,7 +54,7 @@ public class StudentDAO {
 				dto.setStudentName(rs.getString("STUDENTNAME"));
 				dto.setPassword(rs.getString("PASSWORD"));
 				dto.setEmail(rs.getString("EMAIL"));
-				dto.setClassCode(rs.getString("CLASSCODE"));
+				dto.setClassCode(rs.getInt("CLASSCODE"));
 
 
 				list.add(dto);
@@ -82,7 +82,7 @@ public class StudentDAO {
 
 		try {
 			pstmt = conn.prepareStatement(deleteSQL);
-			pstmt.setString(1,dto.getLectureCode());
+			pstmt.setInt(1,dto.getLectureCode());
 			pstmt.executeUpdate();
 
 			System.out.println("『삭제완료!~』");
@@ -113,7 +113,7 @@ public class StudentDAO {
 
 		try {
 			pstmt = conn.prepareStatement(insertSQL);
-			pstmt.setString(1,Sdto.getCurriculumCode());
+			pstmt.setInt(1,Sdto.getCurriculumCode());
 			pstmt.setString(2,Sdto.getStudentNumber());
 			pstmt.executeUpdate();
 			System.out.println("『수강신청 완료~!』");
@@ -148,14 +148,14 @@ public class StudentDAO {
 				dto.setSubjectName(rs.getString("SUBJECTNAME"));
 				dto.setClassName(rs.getString("CLASSNAME"));
 				dto.setSubjectScore(rs.getString("SUBJECTSCORE"));
-				dto.setPeriodNum(rs.getString("PERIODNUM"));
-				dto.setPeople(rs.getString("PEOPLE"));
+				dto.setPeriodNum(rs.getInt("PERIODNUM"));
+				dto.setPeople(rs.getInt("PEOPLE"));
 				dto.setDay(rs.getString("DAY"));
-				dto.setClassCode(rs.getString("CLASSCODE"));
+				dto.setClassCode(rs.getInt("CLASSCODE"));
 				dto.setStaffName(rs.getString("STAFFNAME"));
 				dto.setLectureRoomName(rs.getString("LECTUREROOMNAME"));
-				dto.setSubjectCode(rs.getString("SUBJECTCODE"));
-				dto.setCurriculumCode(rs.getString("CURRICULUMCODE"));
+				dto.setSubjectCode(rs.getInt("SUBJECTCODE"));
+				dto.setCurriculumCode(rs.getInt("CURRICULUMCODE"));
 				
 				
 				one.add(dto);

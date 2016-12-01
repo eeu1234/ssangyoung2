@@ -1,5 +1,5 @@
 package com.project1.DTO;
-//dd
+
 public class myCourseApplicationDTO {
 	private String subjectName;
 	private String staffName;

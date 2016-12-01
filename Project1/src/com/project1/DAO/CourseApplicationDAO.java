@@ -1,5 +1,5 @@
 package com.project1.DAO;
-//인선dd
+
 	import java.sql.Connection;
 	import java.sql.ResultSet;
 	import java.sql.Statement;
@@ -50,14 +50,14 @@ package com.project1.DAO;
 				dto.setSubjectName(rs.getString("SUBJECTNAME"));
 				dto.setClassName(rs.getString("CLASSNAME"));
 				dto.setSubjectScore(rs.getString("SUBJECTSCORE"));
-				dto.setPeriodNum(rs.getString("PERIODNUM"));
-				dto.setPeople(rs.getString("PEOPLE"));
+				dto.setPeriodNum(rs.getInt("PERIODNUM"));
+				dto.setPeople(rs.getInt("PEOPLE"));
 				dto.setDay(rs.getString("DAY"));
-				dto.setClassCode(rs.getString("CLASSCODE"));
+				dto.setClassCode(rs.getInt("CLASSCODE"));
 				dto.setStaffName(rs.getString("STAFFNAME"));
 				dto.setLectureRoomName(rs.getString("LECTUREROOMNAME"));
-				dto.setSubjectCode(rs.getString("SUBJECTCODE"));
-				dto.setCurriculumCode(rs.getString("CURRICULUMCODE"));
+				dto.setSubjectCode(rs.getInt("SUBJECTCODE"));
+				dto.setCurriculumCode(rs.getInt("CURRICULUMCODE"));
 
 
 				list.add(dto);

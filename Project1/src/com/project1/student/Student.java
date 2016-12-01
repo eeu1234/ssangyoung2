@@ -285,7 +285,7 @@ public class Student {
 
 			System.out.println("\n");
 			System.out.print("【교육과정코드】:");
-			String ccode = scan.nextLine();
+			int ccode = scan.nextInt();
 
 			System.out.print("【학번】:");
 			String studentNumber  = scan.nextLine();
@@ -316,7 +316,7 @@ public class Student {
 
 
 			System.out.print("【삭제할 수강신청코드 입력】:");
-			String del = scan.nextLine();
+			int del = scan.nextInt();
 
 			StudentDTO dto = new StudentDTO();
 			dto.setLectureCode(del);
