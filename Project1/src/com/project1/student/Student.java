@@ -162,7 +162,7 @@ public class Student {
 		
 		}
 		
-	}//delete
+	}//delete()
 	
 
 
