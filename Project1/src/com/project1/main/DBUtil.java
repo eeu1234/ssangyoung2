@@ -1,9 +1,8 @@
-package com.project1.DAO;
+package com.project1.main;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-//�ݺ��Ǵ� JDBC ���� ó��
 public class DBUtil {
 
    
@@ -12,7 +11,7 @@ public class DBUtil {
    public static Connection open() {
       
       String url = "jdbc:oracle:thin:@eeu1234.iptime.org:1521:adam";
-      String id = "inseon";
+      String id = "jinwoo";
       String pw = "java1234";
       
       try {
@@ -42,39 +41,5 @@ public class DBUtil {
       }
       
    }
-   
-
-   
-   public static Connection open(String server, String id, String pw) {
-      
-      String url = "jdbc:oracle:thin:@" + server + ":1521:adam";
-      
-      try {
-         
-         Class.forName("oracle.jdbc.driver.OracleDriver");
-         
-         conn = DriverManager.getConnection(url, id, pw);
-         
-      } catch (Exception e) {
-         System.out.println("DBUtil : " + e.toString());
-      }
-      
-      return conn;
-      
-   }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
 }
+   
