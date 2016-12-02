@@ -40,7 +40,6 @@ public class FacultyDAO {
 		    System.out.println("교원 테이블 insert 완성");
 		    	DBUtil.close();
 	      } catch (Exception e) {
-	    	 System.out.println("dao add 메서드 catch");
 	         System.out.println(e.toString());
 	      }
 	}//staffAdd

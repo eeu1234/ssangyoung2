@@ -16,6 +16,19 @@ public class SemesterMain {
 	public static void main(String[] args) {
 		
 
+		menu();
+		
+	}//main
+	
+	public static void menu(){
+		System.out.println("[1.학기 선택]");
+		System.out.println("[2.학기 정보 출력]");
+		System.out.println("[3.특정 학기 정보 출력]");
+		System.out.println("[4.특정 학기 정보 수정]");
+		System.out.println("[5. 메인 화면 으로 이동]");
+		System.out.println("[6. 프로 그램 종료]");
+		System.out.print("업무선택 : ");
+		
 		init();
 		
 		System.out.print("업무선택 : ");
@@ -23,27 +36,42 @@ public class SemesterMain {
 		if(n.equals("1")){
 			System.out.println("[학기 등록]");
 			addSemester();
+			menu();
 		}else if(n.equals("2")){
 			System.out.println("[학기 정보 출력]");
 			listSemester();// 다중 레코드를 출력
+			menu();
 		}else if(n.equals("3")){
 			System.out.println("[특정 학기 정보 출력]");
+			listSemester();
 			searchSemester(); // 단일값 가져오기
+			menu();
 		}else if(n.equals("4")){
 			System.out.println("[특정 학기 정보 수정]");
+			listSemester();
 			updateSemester();
+			menu();
+		}else if(n.equals("5")){
+			AdminMainClass  mainView = new AdminMainClass();
+			System.out.println("메인 화면 으로 이동하기");
+			mainView.mainMenu();
+		}else if(n.equals("6")){
+			System.out.println("[종료되었습니다]");
+			return;
 		}
 		
-	}//main
+		
+	}
+	
 	
 	
 	public static void addSemester() {
-		    System.out.print("학기 코드 입력해 주세요 : ");
+		    System.out.print("[학기 코드 입력해 주세요] : ");
 		    	int semesterCode = scan.nextInt();
 		    	scan.skip("\r\n");
-		    System.out.print("학기 년도 입력해 주세요 : ");
+		    System.out.print("[학기 년도 입력해 주세요] : ");
 		    	String year = scan.nextLine(); 
-		    System.out.print("해당 학기를 입력해 주세요 : ");
+		    System.out.print("[해당 학기를 입력해 주세요] : ");
 		    	String semester = scan.nextLine();   
 		   
 		    SemesterClassDTO  dto =	new SemesterClassDTO();

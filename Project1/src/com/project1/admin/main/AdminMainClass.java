@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.project1.admin.DAO.DBUtil;
 
-
+import sun.applet.Main;
 
 public class AdminMainClass {
 	public static Scanner scan;
@@ -14,25 +14,31 @@ public class AdminMainClass {
 		   scan =  new Scanner(System.in);
 		      	      
 		   System.out.println("Admin.java");
-		   System.out.println("[관리자]");   
+		   System.out.println("[관리자 화면 입니다]");   
 		      
-		   System.out.println();
-		   
+		   mainMenu();
 		  
-		   System.out.println("[1] 학생      [2] 교원      [3] 수강신청   [4] 교육과정   [5] 기타      [0] 종료");
-		   System.out.print("[업무선택] : ");
-		   String n =scan.nextLine();
+		  
+	}//main
+	
+	public static void mainMenu(){
+		 System.out.println("[1] 학생      [2] 교원      [3] 수강신청   [4] 교육과정   [5] 기타      [0] 종료");
+		   System.out.print("업무선택 : ");
+		
 		   boolean flag = true;
 		   while(flag){   
+			   String n =scan.nextLine();
 		          if(n.equals("1")){//학생
 		        System.out.println("[학생을 선택 하셨습니다.]");
 		         StudentMain student = new StudentMain();
-		         student.main(args);
+		         student.menu();
 		         //student.
 		         }else if(n.equals("2")){//교원
 				System.out.println("[교원을 선택 하셨습니다.]");
+			
 		         StaffMain    staff = new StaffMain();
-		         staff.main(args);
+		         
+		         staff.menu();
 		         
 		         }else if(n.equals("3")){//수강신청
 		        //수강신청
@@ -51,7 +57,7 @@ public class AdminMainClass {
 		        	 if(n.equals("1")){
 		        		 System.out.println("[1.교과목]");
 		        		 SubjectMain subjectMain = new SubjectMain();
-		        		 subjectMain.main(args);
+		        		 subjectMain.menu();
 		        		 break;
 		        	 }else if(n.equals("2")){
 		        		 System.out.println("[강의실을 선택 하셨습니다]");
@@ -63,12 +69,12 @@ public class AdminMainClass {
 			        		 if(nn == 1){
 			        		 
 			        		 	LectureRoomMain lectureRoomMain = new LectureRoomMain();
-			        		 	lectureRoomMain.main(args);
+			        		 	lectureRoomMain.menu();
 			        		 	break;
 			        		 }else if(nn == 2){
 			        		
 			        		 	LectureRoomAssignMain lectureRoomAssingMain = new LectureRoomAssignMain();
-			        		 	lectureRoomAssingMain.main(args);
+			        		 	lectureRoomAssingMain.menu();
 			        		 	break;
 			        		 }else{
 			        			 System.out.println("[입력하신 값이 아닙니다]");
@@ -77,12 +83,12 @@ public class AdminMainClass {
 		        	 }else if(n.equals("3")){
 		        		 System.out.println("[학과를 선택 하셨습니다]");
 		        		 DepartmentMain departmentMain = new DepartmentMain();
-		        		 departmentMain.main(args);
+		        		 departmentMain.menu();
 		        		 break;
 		        	 }else if(n.equals("4")){
 		        		 System.out.println("[교시를 선택 하셨습니다]");
 		        		 PeriodMain periodMain = new PeriodMain();
-		        		 periodMain.main(args);
+		        		 periodMain.menu();
 		        		 break;
 		        	 }else{
 		        		 System.out.println("[나가기]");
@@ -92,16 +98,24 @@ public class AdminMainClass {
 		        		 break;
 		        	 }
 		        	 }//while
-  
+
 		         }else if(n.equals("0")){//종료
 		            System.out.println("[종료 되었습니다]");
+		          
 		            DBUtil.close();
 		            flag = false;
-		            break;
+		            return;
+		       
+		         }else{
+		        	 System.out.println("[종료 되었습니다]");
+			            DBUtil.close();
+			            flag = false;
+			            return;
 		         }
 		   }//while
 		   
 	}
+	
 	
 	
 }

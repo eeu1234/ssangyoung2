@@ -16,26 +16,54 @@ public class LectureRoomAssignMain {
 	private static ArrayList<LectureRoomAssignDTO> list = null;
 	public static void main(String[] args) {
 		
+		menu();
+	
+		
+	}//main
+	
+	public static void menu(){
 	
 		init();
 		
+		System.out.println("[1. 강의실 배정 등록] ]");
+		System.out.println("[2. 강의실 배정 정보 출력]");
+		System.out.println("[3. 특정 강의실 배정 정보 출력]");
+		System.out.println("[4. 특정 강의실 배정 정보 삭제]");
+		System.out.println("[5. 처음 강의실 배정 수정]");
+		System.out.println("[6. 메인 페이지로 이동]");
+		System.out.println("[7. 종료]");
+		
+		
 		System.out.print("업무선택 : ");
 		String n = scan.nextLine();
-		if(n.equals("1")){
-			System.out.println("강의실 배정 등록");
+		if(n.equals("1")){	
 			add();
+			menu();
 		}else if(n.equals("2")){
-			list();// 다중 레코드를 출력
+			list();
+			menu();
 		}else if(n.equals("3")){
-			System.out.println("[단일값 가져오기]");
-			searchLectureRoom(); // 단일값 가져오기
+			list();
+			searchLectureRoom();
+			menu();
 		}else if(n.equals("4")){
+			list();
 			deleteLectureRoom();	
+			menu();
 		}else if(n.equals("5")){
+			list();
 			updateLectureRoom();
+			menu();
+		}else if(n.equals("6")){	
+			AdminMainClass adMain = new AdminMainClass();
+			adMain.mainMenu();
+		}else if(n.equals("7")){
+			System.out.println("[종료]");
+			return;
 		}
-		
-	}//main
+	
+	}
+	
 	
 	
 	public static void add() {

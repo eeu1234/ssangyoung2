@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.project1.admin.DTO.DepartmentDTO;
-
+import com.project1.admin.main.DepartmentMain;
 
 public class DepartmentDAO {
 
@@ -30,7 +30,6 @@ public class DepartmentDAO {
 			    pstmt.setString(2, dto.getClassName());
 			 
 			  pstmt.executeUpdate();
-		    System.out.println("학과 테이블 insert 완성");
 		    	DBUtil.close();
 	      } catch (Exception e) {
 	         System.out.println(e.toString());
@@ -56,12 +55,12 @@ public class DepartmentDAO {
 				}
 				 DBUtil.close();								
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			System.out.println(e.toString());
 		}
 		return list;						
 	
-	};
+	}//departmentListAll
 /////////////////////////////////////////////////////////////////////////////////	
 	
 	public  ArrayList<DepartmentDTO> departmentSearch (){
@@ -71,7 +70,7 @@ public class DepartmentDAO {
 		PreparedStatement pstmt = null;	
 		ResultSet rs = null;		
 		DepartmentDTO dto = new DepartmentDTO();
-	
+		System.out.println("[찾고자 하시는 학과 코드를 입력해주세요] : ");
 		int classCode = scan.nextInt();
 		scan.nextLine();
 		dto.setClassCode(classCode);
@@ -92,7 +91,7 @@ public class DepartmentDAO {
 		System.out.println(e.toString());
 		}
 		return list;
-	}//lectureRoomSearch
+	}//departmentSearch
 /////////////////////////////////////////////////////////////////////////////////	
 	public  void departmentUpdate(DepartmentDTO dto){
 		System.out.println("DAO 업데이트");
@@ -118,12 +117,11 @@ public class DepartmentDAO {
 			}else{
 			}	
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			DBUtil.close();
 			
 			System.out.println("수정이 되지 않았습니다");
 			System.out.println(e.toString());
 		}	
-	}//lectureRoomUpdate
+	}//departmentUpdate
 	
 }//class

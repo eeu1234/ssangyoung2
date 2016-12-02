@@ -15,32 +15,58 @@ public class DepartmentMain {
 	public static void main(String[] args) {
 		
 
+		
+		menu();
+	}//main
+	
+	public static void menu(){
 		init();
-		System.out.println("[1. 학과선택][2.학과 정보 출력][3.특정 학과 정보 출력][4.특정 학과 정보 수정]");
+		
+		
+		System.out.println("[1.학과선택]");
+		System.out.println("[2.학과 정보 출력]");
+		System.out.println("[3.특정 학과 정보 출력]");
+		System.out.println("[4.특정 학과 정보 수정]");
+		System.out.println("[5.메인 화면 으로 이동]");
+		System.out.println("[6.프로 그램 종료]");
 		System.out.print("업무선택 : ");
+		
 		String n = scan.nextLine();
 		if(n.equals("1")){
 			System.out.println("[학과 등록]");
 			addDepartment();
+			menu();
 		}else if(n.equals("2")){
 			System.out.println("[학과 정보 출력]");
 			listDepartment();// 다중 레코드를 출력
+			menu();
 		}else if(n.equals("3")){
 			System.out.println("[특정 학과 정보 출력]");
+			listDepartment();
 			searchDepartment(); // 단일값 가져오기
+			menu();
 		}else if(n.equals("4")){
 			System.out.println("[특정 학과 정보 수정]");
+			listDepartment();
 			updateDepartment();
+			menu();
+		}else if(n.equals("5")){
+			AdminMainClass  mainView = new AdminMainClass();
+			System.out.println("메인 화면 으로 이동하기");
+			mainView.mainMenu();
+		}else if(n.equals("6")){
+			System.out.println("[종료되었습니다]");
+			return;
 		}
-		
-	}//main
+	}
+	
 	
 	
 	public static void addDepartment() {
-		    System.out.print("학과 코드 입력해 주세요 : ");
+		    System.out.print("[학과 코드 입력해 주세요] : ");
 		    int classCode = scan.nextInt();
 		    scan.skip("\r\n");
-		    System.out.print("학과 이름 입력해 주세요 : ");
+		    System.out.print("[학과 이름 입력해 주세요] : ");
 		    String className = scan.nextLine();    
 		   
 		    DepartmentDTO  dto =	new DepartmentDTO();

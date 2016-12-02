@@ -9,12 +9,13 @@ import java.util.Scanner;
 
 import com.project1.admin.DTO.LectureRoomDTO;
 import com.project1.admin.DTO.StudentDTO;
+import com.project1.admin.main.AdminMainClass;
 
 public class StudentDAO {
-
+	private Scanner scan =  new Scanner(System.in);
 	public  void add(StudentDTO dto){
 
-		System.out.println("들어온다.");
+	
 		Connection conn =DBUtil.open();
 	    PreparedStatement pstmt = null;
 	    
@@ -28,10 +29,22 @@ public class StudentDAO {
 			    pstmt.setString(4, dto.getEmail()); 
 			    pstmt.setInt(5, dto.getClassCode());
 			    
-			  pstmt.executeUpdate();
-		    	DBUtil.close();
+			  int resultValue =  pstmt.executeUpdate();
+			   
+			  if(resultValue != 0 ){
+				  System.out.println("[학생 등록 성공]");
+				  AdminMainClass aa =  new AdminMainClass();
+				  DBUtil.close();
+			  }else{
+				  System.out.println("[학생 등록 실패]");
+
+			  }
+		
+		    	
 	      } catch (Exception e) {
 	         System.out.println(e.toString());
+	        System.out.println("엥");
+	        
 	      }
 	}//add
 
@@ -43,7 +56,7 @@ public class StudentDAO {
 		PreparedStatement pstmt = null;	
 		ResultSet rs = null;		
 		String sql  = "SELECT * FROM STUDENT ORDER BY  STUDENTNUMBER ASC";			
-		System.out.println("studentListAll  3");
+	
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -59,7 +72,6 @@ public class StudentDAO {
 				}
 				 DBUtil.close();								
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.toString());
 		}
 		return list;						
@@ -77,15 +89,12 @@ public class StudentDAO {
 		int studentNumber = scan.nextInt();
 			
 		String sql  ="SELECT * FROM STUDENT WHERE STUDENTNUMBER =?  ORDER BY STUDENTNUMBER ASC";		
-			//System.out.println(sql);
-		
-			//scan.skip("\r\n");
-		System.out.println("studentSearch  1");
+			
+	
 		try {		
 			pstmt  	=  conn.prepareStatement(sql);
 			pstmt.setInt(1, studentNumber);
 			rs		=  pstmt.executeQuery();
-				System.out.println("studentSearch  2");
 			while (rs.next()){
 				System.out.println("studentSearch  3");	    
 				 dto.setStudentNumber(rs.getInt("studentNumber"));
@@ -93,7 +102,6 @@ public class StudentDAO {
 			     dto.setPassword(rs.getInt("password"));
 			     dto.setEmail(rs.getString("email"));
 			     dto.setClassCode(rs.getInt("classCode"));
-		     	System.out.println("studentSearch  4");                          
              list.add(dto);   
 			}
 			DBUtil.close();		
@@ -102,21 +110,19 @@ public class StudentDAO {
 		System.out.println(e.toString());
 		}
 		return list;
-	}//lectureRoomSearch
+	}//studentSearch
 /////////////////////////////////////////////////////////////////////////////////	
 	public  void studentUpdate(StudentDTO dto){
 		System.out.println("DAO 업데이트");
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;	
 		
-		System.out.println("UPDATE 들어온다");	
 		try {
 			String sql  = 
 					"UPDATE STUDENT SET  STUDENTNAME =?,"
 					+ " PASSWORD =?, EMAIL =? WHERE  STUDENTNAME =?";
 			pstmt = conn.prepareStatement(sql);//객체를 생성하고 
 			
-		System.out.println(sql);				
 			
 		    pstmt.setString(1, dto.getStudentName());
 		    pstmt.setInt(2, dto.getPassword());
@@ -125,7 +131,6 @@ public class StudentDAO {
 			
 		    pstmt.executeUpdate();
 			
-			System.out.println("완료");
 			
 			ResultSet rs  = pstmt.executeQuery();
 			if(rs != null){		
@@ -138,17 +143,23 @@ public class StudentDAO {
 			System.out.println("[수정이 되지 않았습니다]");
 			System.out.println(e.toString());
 		}	
-	}//lectureRoomUpdate
+	}//studentUpdate
+	
+
+	
+	
+	
 /////////////////////////////////////////////////////////////////////////////////
 public void studentChildDelete(StudentDTO dto){
 		
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;	
+		
+
+		////////////////////////////////////////////////////////////////////////////
 		try {
 			String sql  = "DELETE  FROM COURSE_APPLICATION WHERE STUDENTNUMBER = ?";		
-			System.out.println(sql);		
-			pstmt  	=  conn.prepareStatement(sql);
-			
+			pstmt  	=  conn.prepareStatement(sql);		
 			pstmt.setInt(1,dto.getStudentNumber());
 			int val =  pstmt.executeUpdate();	
 			if(val != 0 ){
@@ -162,32 +173,50 @@ public void studentChildDelete(StudentDTO dto){
 			
 		System.out.println(e.toString());
 		}
-	}//lectureRoomDelete		
+	}//studentChildDelete		
 	
 ////////////////////////////////////////////////////////////////////////////////
 	public void studentDelete(StudentDTO dto){
 		
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;	
-		try {
-			String sql  = "DELETE  FROM STUDENT WHERE STUDENTNUMBER = ?";		
-			System.out.println(sql);		
-			pstmt  	=  conn.prepareStatement(sql);
-		
-			pstmt.setInt(1,dto.getStudentNumber());
-			int val =  pstmt.executeUpdate();	
-			if(val != 0 ){
-				System.out.println("[삭제가 완료 되었습니다] ");
-				DBUtil.close();
-			}else{
-				System.out.println("[삭제가 안되었습니다] ");
+			try {
+				String sql  = "DELETE  FROM COURSE_APPLICATION WHERE STUDENTNUMBER = ?";		
+				pstmt  	=  conn.prepareStatement(sql);
+				
+				pstmt.setInt(1,dto.getStudentNumber());
+				int val =  pstmt.executeUpdate();	
+				if(val != 0 ){
+					System.out.println("[삭제가 완료 되었습니다] ");
+					DBUtil.close();
+				}else{
+					System.out.println("[삭제가 안되었습니다] ");
+				}
+				DBUtil.close();				
+			} catch (SQLException e) {
+				
+			System.out.println(e.toString());
 			}
-			DBUtil.close();				
-		} catch (SQLException e) {
-			
-		System.out.println(e.toString());
-		}
-	}//lectureRoomDelete	
+		
+				try {
+					String sql  = "DELETE  FROM STUDENT WHERE STUDENTNUMBER = ?";		
+					System.out.println(sql);		
+					pstmt  	=  conn.prepareStatement(sql);
+				
+					pstmt.setInt(1,dto.getStudentNumber());
+					int val =  pstmt.executeUpdate();	
+					if(val != 0 ){
+						System.out.println("[삭제가 완료 되었습니다] ");
+						DBUtil.close();
+					}else{
+						System.out.println("[삭제가 안되었습니다] ");
+					}
+					DBUtil.close();				
+				} catch (SQLException e) {
+					
+				System.out.println(e.toString());
+				}
+	}//studentDelete	
 /////////////////////////////////////////////////////////////////////////////////	
 	
 	

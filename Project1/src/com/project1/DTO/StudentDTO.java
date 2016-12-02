@@ -2,7 +2,6 @@ package com.project1.DTO;
 
 public class StudentDTO {
 
-//dd
 	private int subjectCode;
 	private String className;
 	private String subjectScore;

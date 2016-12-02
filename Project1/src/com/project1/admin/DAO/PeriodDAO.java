@@ -42,10 +42,9 @@ int dayCode;
 			    pstmt.setInt(2,dto.getCurriculumCode());
 			    pstmt.setInt(3, dto.getDayCode());  
 			    pstmt.executeUpdate();     
-	    System.out.println("교시 테이블 inseet 완성");
+	    System.out.println("교시 테이블 insert 완성");
 	    DBUtil.close();  
 	      } catch (Exception e) {
-	    	 System.out.println("dao add 메서드 catch");
 	         System.out.println(e.toString());
 	      }
 	}//add
@@ -90,10 +89,8 @@ int dayCode;
 		scan.skip("\r\n");
 		
 		try {
-			pstmt  	=  conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, periodCode);
-			
+			pstmt  	=  conn.prepareStatement(sql);		
+			pstmt.setInt(1, periodCode);	
 			rs		=  pstmt.executeQuery();
 			
 			while (rs.next()){
@@ -111,14 +108,13 @@ int dayCode;
 		System.out.println(e.toString());
 		}
 		return list;
-	}//선택적 검색 
+	}//searchPeriod 검색 
 	
 	public void delPeriod(PeriodDTO dto){
 		System.out.println("메롱");
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;	
 		try {
-			System.out.println("delete 들어온다");
 			String sql  = "DELETE  FROM PERIOD WHERE PERIODNUM = ?";		
 			System.out.println(sql);
 			pstmt  	=  conn.prepareStatement(sql);
@@ -133,10 +129,9 @@ int dayCode;
 			pstmt.close();
 			conn.close();				
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 		System.out.println(e.toString());
 		}
-	}// 삭제
+	}//delPeriod
 	
 	
 	public void updatePeriod(PeriodDTO dto){
@@ -146,13 +141,10 @@ int dayCode;
 		
 		System.out.println("UPDATE 들어온다");
 	
-//UPDATE PERIOD SET  PERIODNUM = 8, STARTTIME = '15:00', ENDTIME = '18:00' WHERE  PERIODCODE = 12;		
 		try {
 			String sql  = 
-				
-					"UPDATE PERIOD SET  PERIODNUM =?, CURRICULUMCODE =?, DAYCODE =? WHERE  PERIODCODE =?";
-			
-			pstmt = conn.prepareStatement(sql);//객체를 생성하고 
+					"UPDATE PERIOD SET  PERIODNUM =?, CURRICULUMCODE =?, DAYCODE =? WHERE  PERIODCODE =?";	
+			pstmt = conn.prepareStatement(sql); 
 			System.out.println(sql);
 	
 			pstmt.setInt(1, dto.getPeriodNum());
@@ -160,8 +152,7 @@ int dayCode;
 			pstmt.setInt(3, dto.getDayCode());
 			pstmt.setInt(4, dto.getPeriodCode());
 			
-			int val   =  pstmt.executeUpdate();	// 반환값을 돌려줘
-			//ResultSet rs  = pstmt.executeQuery();
+			int val   =  pstmt.executeUpdate();
 			if(val != 0){
 				System.out.println("수정 완료 되었습니다 ");
 				pstmt.close();
@@ -178,16 +169,6 @@ int dayCode;
 		}	
 	}//updatePeriod
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }//class

@@ -60,7 +60,6 @@ public class SubjectDAO {
 				}
 				 DBUtil.close();								
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.toString());
 		}
 		return list;						
@@ -107,9 +106,7 @@ public class SubjectDAO {
 			String sql  = 
 					"UPDATE SUBJECT SET  SUBJECTNAME =?,"
 					+ "SUBJECTSCORE =?, PERIOD =?, SUBJECTPROGRAM = ?  WHERE  SUBJECTCODE =?";
-			pstmt = conn.prepareStatement(sql);//객체를 생성하고 
-			System.out.println(sql);		
-			
+			pstmt = conn.prepareStatement(sql);//객체를 생성하고 			
 			
 			pstmt.setString(1, dto.getSubjectScore());
 			pstmt.setString(2,dto.getPeriod());
@@ -124,7 +121,6 @@ public class SubjectDAO {
 			}else{
 			}	
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println("[수정 실패]");
 			System.out.println(e.toString());
 		}	

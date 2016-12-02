@@ -31,7 +31,6 @@ public class LectureRoomAssignDAO {
 		
 		 int aa =  pstmt.executeUpdate();
 		 if(aa !=0){
-				System.out.println("강의실 배정 테이블 inseet 완성");
 			    DBUtil.close();  
 		 }else{
 			 System.out.println("실패");
@@ -57,12 +56,10 @@ public class LectureRoomAssignDAO {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 				while (rs.next()){
-					System.out.println("lectureAssignRoomListAll 여기까지는 들어온다1");
 					LectureRoomAssignDTO dto = new LectureRoomAssignDTO();			
 			     dto.setLectureAssignRoomCode(rs.getInt("lectureAssignRoomCode"));
 			     dto.setCurriculumCode(rs.getInt("curriculumCode"));
 			     dto.setLectureRoomCode(rs.getInt("lectureRoomCode"));  
-					System.out.println("lectureAssignRoomListAll 여기까지는 들어온다2");
 
 	             list.add(dto);   
 				}
@@ -76,7 +73,6 @@ public class LectureRoomAssignDAO {
 	}//lectureAssignRoomListAll
 	
 	public  ArrayList<LectureRoomAssignDTO> lectureAssignRoomSearch (){
-	//	ArrayList<LectureRoomDTO> list = new ArrayList<LectureRoomDTO>();
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;	
 		ResultSet rs = null;		
@@ -86,7 +82,6 @@ public class LectureRoomAssignDAO {
 		int lectureAssignRoomCode = scan.nextInt();
 		
 		String sql  ="SELECT * FROM LECTURE_ROOM_ASSIGN WHERE LECTUREASSIGNROOMCODE =?  ORDER BY  LECTUREASSIGNROOMCODE ASC";	
-		//scan.skip("\r\n");
 		System.out.println("lectureAssignRoomSearch 들어온다1");
 		try {
 			pstmt  	=  conn.prepareStatement(sql);
@@ -95,7 +90,6 @@ public class LectureRoomAssignDAO {
 			System.out.println(sql);
 			System.out.println("lectureAssignRoomSearch 들어온다2");
 			while (rs.next()){
-//				LectureRoomDTO dto = new LectureRoomDTO();			
 				System.out.println("lectureAssignRoomSearch 들어온다3");
 				 dto.setLectureAssignRoomCode(rs.getInt("lectureAssignRoomCode"));
 			     dto.setCurriculumCode(rs.getInt("curriculumCode"));
@@ -106,7 +100,6 @@ public class LectureRoomAssignDAO {
 			DBUtil.close();		
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 		System.out.println(e.toString());
 		}
 		return list;

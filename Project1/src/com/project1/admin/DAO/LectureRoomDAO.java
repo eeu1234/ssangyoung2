@@ -22,8 +22,7 @@ public class LectureRoomDAO {
 	      try {    	  
 	    	  String sql = String.format("INSERT INTO LECTURE_ROOM(LECTUREROOMCODE,LECTUREROOMNUM,LECTUREROOMNAME,LECTUREROOMPLACE)"+ "VALUES(LECTUREROOMCODE.NEXTVAL,?,?,?)");                                                 
 	    	  pstmt = conn.prepareStatement(sql);   	 
-//교시 등록값 	  
-		  //  pstmt.setInt(1, dto.getLectureRoomCode());
+	  
 		    pstmt.setInt(1,dto.getLectureRoomNum());
 		    pstmt.setString(2, dto.getLectureRoomName());  
 		    pstmt.setString(3, dto.getLectureRoomPlace());  
@@ -31,9 +30,8 @@ public class LectureRoomDAO {
 		    System.out.println("강의실 테이블 insert 완성");
 	    DBUtil.close();
 	   
-	    //DBUtil.close();  
+	  
 	      } catch (Exception e) {
-	    	 System.out.println("dao add 메서드 catch");
 	         System.out.println(e.toString());
 	      }
 	}//add
@@ -46,13 +44,9 @@ public class LectureRoomDAO {
 		PreparedStatement pstmt = null;	
 		ResultSet rs = null;		
 		String sql  = "SELECT * FROM LECTURE_ROOM ORDER BY  LECTUREROOMCODE ASC";			
-		System.out.println("lectureRoomListAll  3");
 		try {
-			System.out.println("lectureRoomListAll  4");
 			pstmt = conn.prepareStatement(sql);
-			System.out.println("lectureRoomListAll  5");
 			rs = pstmt.executeQuery();
-			System.out.println("lectureRoomListAll  6");
 				while (rs.next()){
 					LectureRoomDTO dto = new LectureRoomDTO();			
 			     dto.setLectureRoomCode(rs.getInt("lectureRoomCode"));
@@ -80,25 +74,18 @@ public class LectureRoomDAO {
 		ResultSet rs = null;		
 		LectureRoomDTO dto = new LectureRoomDTO();
 		int lectureRoomNum = scan.nextInt();
-			//System.out.println("lectureRoomSearch  0");
-			//System.out.println(lectureRoomNum);
-		String sql  = String.format("SELECT * FROM LECTURE_ROOM WHERE LECTUREROOMNUM =?  ORDER BY LECTUREROOMNUM ASC",lectureRoomNum);		
-			//System.out.println(sql);
 		
-			//scan.skip("\r\n");
-		System.out.println("lectureRoomSearch  1");
+		String sql  = String.format("SELECT * FROM LECTURE_ROOM WHERE LECTUREROOMNUM =?  ORDER BY LECTUREROOMNUM ASC",lectureRoomNum);		
+			
 		try {		
 			pstmt  	=  conn.prepareStatement(sql);
 			pstmt.setInt(1, lectureRoomNum);
 			rs		=  pstmt.executeQuery();
-				System.out.println("lectureRoomSearch  2");
 			while (rs.next()){
-				System.out.println("lectureRoomSearch  3");	    
 		     dto.setLectureRoomCode(rs.getInt("lectureRoomCode"));
 		     dto.setLectureRoomNum(rs.getInt("lectureRoomNum"));
 		     dto.setLectureRoomName(rs.getString("lectureRoomName"));
 		     dto.setLectureRoomPlace(rs.getString("lectureRoomPlace"));
-		     	System.out.println("lectureRoomSearch  4");                          
              list.add(dto);   
 			}
 			DBUtil.close();		
@@ -122,14 +109,12 @@ public class LectureRoomDAO {
 					+ " LECTUREROOMNAME =?, LECTUREROOMPLACE =? WHERE  LECTUREROOMCODE =?";
 			pstmt = conn.prepareStatement(sql);//객체를 생성하고 
 			System.out.println(sql);		
-			
-			
+				
 			pstmt.setInt(1, dto.getLectureRoomNum());
 			pstmt.setString(2,dto.getLectureRoomName());
 			pstmt.setString(3,dto.getLectureRoomPlace());			
 			pstmt.setInt(4,dto.getLectureRoomCode());
 			pstmt.executeUpdate();
-			System.out.println("완료");
 			
 			ResultSet rs  = pstmt.executeQuery();
 			if(rs != null){		
@@ -138,7 +123,6 @@ public class LectureRoomDAO {
 			}else{
 			}	
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println("메롱");
 			System.out.println(e.toString());
 		}	

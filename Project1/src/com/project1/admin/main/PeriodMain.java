@@ -15,27 +15,54 @@ public class PeriodMain {
 		
 		PeriodDAO dao = new PeriodDAO();
 		
+		menu();
+		
+		
+		
+	}//main
+	public static void menu(){
+		PeriodDAO dao = new PeriodDAO();
+		
+		System.out.println("[1.교시 선택]");
+		System.out.println("[2.교시 정보 출력]");
+		System.out.println("[3.특정 교시 정보 출력]");
+		System.out.println("[4.특정 교시 정보 삭제]");
+		System.out.println("[5.특정 교시 정보 수정]");
+		System.out.println("[6. 메인 화면 으로 이동]");
+		System.out.println("[7. 프로 그램 종료]");
+		System.out.print("업무선택 : ");
+		
 		init();
 		
 		System.out.print("업무선택 : ");
 		String n = scan.nextLine();
 		if(n.equals("1")){
 			add();
+			menu();
 		}else if(n.equals("2")){
-			list();// 다중 레코드를 출력
+			list();
+			menu();
 		}else if(n.equals("3")){
-			System.out.println("[단일값 가져오기]");
-			searchPeriod(); // 단일값 가져오기
+			searchPeriod();
 		}else if(n.equals("4")){
-		
+			list();
 			deletePeriod();
-			//de	
+			menu();
+			
 		}else if(n.equals("5")){
+			list();
 			updatePeriod();
-		//	names(); // 
+			menu();
+		}else if(n.equals("6")){
+			AdminMainClass  mainView = new AdminMainClass();
+			System.out.println("메인 화면 으로 이동하기");
+			mainView.mainMenu();
+		}else if(n.equals("7")){
+			System.out.println("[종료되었습니다]");
+			return;
 		}
-		
-	}//main
+	}
+	
 	
 	
 	public static void add() {

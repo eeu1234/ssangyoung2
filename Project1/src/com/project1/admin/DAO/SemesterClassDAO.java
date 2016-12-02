@@ -37,7 +37,7 @@ public class SemesterClassDAO {
 	      } catch (Exception e) {
 	         System.out.println(e.toString());
 	      }
-	}//add
+	}//semesterAdd
 
 /////////////////////////////////////////////////////////////////////////////////	
 	public ArrayList<SemesterClassDTO> semesterListAll(){
@@ -59,12 +59,11 @@ public class SemesterClassDAO {
 				}
 				 DBUtil.close();								
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.toString());
 		}
 		return list;						
 	
-	};
+	}//semesterListAll
 /////////////////////////////////////////////////////////////////////////////////	
 	
 	public  ArrayList<SemesterClassDTO> semesterSearch (){
@@ -97,14 +96,13 @@ public class SemesterClassDAO {
 		System.out.println(e.toString());
 		}
 		return list;
-	}//lectureRoomSearch
+	}//semesterSearch
 /////////////////////////////////////////////////////////////////////////////////	
 	public  void semesterUpdate(SemesterClassDTO dto){
 		System.out.println("DAO 업데이트");
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;	
 		
-		System.out.println("UPDATE 들어온다");	
 		try {
 			String sql  = 
 					"UPDATE SEMESTER_CLASS SET YEAR =?, SEMESTER = ? WHERE  SEMESTERCODE =?";
@@ -117,7 +115,6 @@ public class SemesterClassDAO {
 		    
 		    pstmt.executeUpdate();
 			
-			System.out.println("완료");
 		int val =	pstmt.executeUpdate();
 		
 			if(val != 0){		
@@ -133,6 +130,6 @@ public class SemesterClassDAO {
 			System.out.println("수정이 되지 않았습니다");
 			System.out.println(e.toString());
 		}	
-	}//lectureRoomUpdate
+	}//semesterUpdate
 	
 }//class

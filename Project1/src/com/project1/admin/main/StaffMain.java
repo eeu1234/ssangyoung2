@@ -17,31 +17,55 @@ public class StaffMain {
 		
 	//	LectureRoomDAO dao = new LectureRoomDAO();
 		
+		menu();
+		
+	}//main
+	
+	public static void menu(){
 		init();
 		
 		System.out.println("[1. 교원 등록] ]");
 		System.out.println("[2. 교원 정보 출력]");
 		System.out.println("[3. 특정 교원 정보 출력]");
 		System.out.println("[4. 특정 교원 정보 수정]");
-		
+		System.out.println("[5. 처음 페이지로 이동]");
+		System.out.println("[6. 메인 페이지로 이동]");
+		System.out.println("[7. 종료]");
 		
 		System.out.print("업무선택 : ");
 		String n = scan.nextLine();
 		if(n.equals("1")){
 			System.out.println("[교원 등록]");
 			addStaff();
+			menu();
 		}else if(n.equals("2")){
 			System.out.println("[교원 정보 출력]");
-			listStaff();// 다중 레코드를 출력
+			listStaff();
+			menu();
 		}else if(n.equals("3")){
 			System.out.println("[특정 교원 정보 출력]");
-			searchStaff(); // 단일값 가져오기
+			listStaff();
+			listStaff();
+			searchStaff();
+			menu();
 		}else if(n.equals("4")){
 			System.out.println("[특정 교원 정보 수정]");
+			listStaff();
 			updateStaff();
+			menu();
+		}else if(n.equals("5")){
+			System.out.println("[처음 페이지로 이동]");
+			menu();
+		}else if(n.equals("6")){
+				System.out.println("[메인 페이지로 이동]");
+				AdminMainClass adMain = new AdminMainClass();
+				adMain.mainMenu();
+		}else if(n.equals("7")){
+			System.out.println("[종료]");
+			return;
 		}
-		
-	}//main
+	}
+	
 	
 	
 	public static void addStaff() {

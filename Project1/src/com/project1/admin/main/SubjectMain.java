@@ -17,39 +17,43 @@ public class SubjectMain {
 	
 	public static void main(String[] args) {
 		
-	
-	
-			
-		//	LectureRoomDAO dao = new LectureRoomDAO();
-		System.out.println("[1. 강의실 등록]");
-		System.out.println("[2. 강의실 전체 출력]");
-		System.out.println("[3. 강의실 선택 출력]");
-		System.out.println("[4. 강의실 선택 삭제]");
-		System.out.println("[5. 강의실 정보 수정]");
-			init();
-			
-			System.out.println();			
-			System.out.print("[업무선택 : ]");
-			String n = scan.nextLine();
-			if(n.equals("1")){
-				System.out.println("[강의실 등록을 선택 하셨습니다.]");
-				addSubject();
-			}else if(n.equals("2")){
-				System.out.println("강의실 전체 출력.]");
-				listSubject();// 다중 레코드를 출력
-			}else if(n.equals("3")){
-				System.out.println("[특정 강의실 출력을  선택 하셨습니다.]");
-				searchSubject(); // 단일값 가져오기
-			}else if(n.equals("4")){
-				System.out.println("[강의실 정보 삭제를  선택 하셨습니다.]");
-				deleteSubject();	
-			}else if(n.equals("5")){
-				System.out.println("[강의실 정보 수정을  선택 하셨습니다.]");
-				updateSubject();
-			}
-			
+		menu();
 		}//main
 		
+	
+		public static void menu(){
+			System.out.println("[1. 강의실 등록]");
+			System.out.println("[2. 강의실 전체 출력]");
+			System.out.println("[3. 강의실 선택 출력]");
+			System.out.println("[4. 강의실 선택 삭제]");
+			System.out.println("[5. 강의실 정보 수정]");
+				init();
+				
+				System.out.println();			
+				System.out.print("[업무선택 : ]");
+				String n = scan.nextLine();
+				if(n.equals("1")){
+					System.out.println("[강의실 등록을 선택 하셨습니다.]");
+					addSubject();
+				}else if(n.equals("2")){
+					System.out.println("강의실 전체 출력.]");
+					listSubject();
+				}else if(n.equals("3")){
+					System.out.println("[특정 강의실 출력을  선택 하셨습니다.]");
+					listSubject();
+					searchSubject(); 
+				}else if(n.equals("4")){
+					listSubject();
+					System.out.println("[강의실 정보 삭제를  선택 하셨습니다.]");
+					deleteSubject();	
+				}else if(n.equals("5")){
+					System.out.println("[강의실 정보 수정을  선택 하셨습니다.]");
+					listSubject();
+					updateSubject();
+				}
+		}
+	
+	
 		
 		public static void addSubject() {
 			
