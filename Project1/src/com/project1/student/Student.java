@@ -284,11 +284,14 @@ public class Student {
 
 
 			System.out.println("\n");
+			System.out.print("【학번】:");
+			String studentNumber  = scan.nextLine();
+					
+			
 			System.out.print("【교육과정코드】:");
 			int ccode = scan.nextInt();
 
-			System.out.print("【학번】:");
-			String studentNumber  = scan.nextLine();
+			
 
 			StudentDAO dao = new StudentDAO();
 
