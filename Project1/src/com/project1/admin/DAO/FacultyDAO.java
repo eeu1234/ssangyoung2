@@ -12,16 +12,7 @@ public class FacultyDAO {
 
 	//LECTURE_ROOM
 	public  void staffAdd(FacultyDTO dto){
-/* 
-교원
-교원번호(PK)	NUMBER	staffCode(PK)
-교원이름	VARCHAR2(15)	staffName
-구분코드	CHAR(1)	betweenCode
-비밀번호	VARCHAR2(50)	password
-이메일	VARCHAR2(50)	email
-학과코드(FK)	NUMBER	classCode(FK)
-		
- */
+
 		System.out.println("들어온다.");
 		Connection conn =DBUtil.open();
 	    PreparedStatement pstmt = null;
@@ -54,14 +45,11 @@ public class FacultyDAO {
 		String sql  = "SELECT * FROM FACULTY ORDER BY  BETWEENCODE ASC";			
 	
 		try {
-			System.out.println("studentListAll  4");
+	
 			pstmt = conn.prepareStatement(sql);
-			System.out.println("studentListAll  5");
 			rs = pstmt.executeQuery();
-			System.out.println("studentListAll  6");
 				while (rs.next()){
 					FacultyDTO dto = new FacultyDTO();
-			  
 					   dto.setStaffCode(rs.getInt("staffCode"));
 					   dto.setStaffName(rs.getString("staffName"));
 					   dto.setBetweenCode(rs.getString("betweenCode"));

@@ -15,7 +15,6 @@ public class LectureRoomDAO {
 
 	//LECTURE_ROOM
 	public  void add(LectureRoomDTO dto){
-		System.out.println("들어온다.");
 		Connection conn =DBUtil.open();
 	    PreparedStatement pstmt = null;
 	    
@@ -58,7 +57,6 @@ public class LectureRoomDAO {
 				}
 				 DBUtil.close();								
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.toString());
 		}
 		return list;						
@@ -108,7 +106,6 @@ public class LectureRoomDAO {
 					"UPDATE LECTURE_ROOM SET  LECTUREROOMNUM =?,"
 					+ " LECTUREROOMNAME =?, LECTUREROOMPLACE =? WHERE  LECTUREROOMCODE =?";
 			pstmt = conn.prepareStatement(sql);//객체를 생성하고 
-			System.out.println(sql);		
 				
 			pstmt.setInt(1, dto.getLectureRoomNum());
 			pstmt.setString(2,dto.getLectureRoomName());
@@ -123,7 +120,6 @@ public class LectureRoomDAO {
 			}else{
 			}	
 		} catch (SQLException e) {
-			System.out.println("메롱");
 			System.out.println(e.toString());
 		}	
 	}//lectureRoomUpdate

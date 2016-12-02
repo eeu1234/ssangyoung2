@@ -4,22 +4,13 @@ import java.util.Scanner;
 
 import com.project1.admin.DAO.DBUtil;
 
-import sun.applet.Main;
+
 
 public class AdminMainClass {
-	public static Scanner scan;
+	public static Scanner  scan =  new Scanner(System.in);
 
-	public static void main(String[] args) {
-		
-		   scan =  new Scanner(System.in);
-		      	      
-		   System.out.println("Admin.java");
-		   System.out.println("[관리자 화면 입니다]");   
-		      
-		   mainMenu();
-		  
-		  
-	}//main
+	
+	
 	
 	public static void mainMenu(){
 		 System.out.println("[1] 학생      [2] 교원      [3] 수강신청   [4] 교육과정   [5] 기타      [0] 종료");

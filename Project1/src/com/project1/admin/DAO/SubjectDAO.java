@@ -20,19 +20,19 @@ public class SubjectDAO {
 	    PreparedStatement pstmt = null;
 	    
 	      try {    	  
-	    	  String sql = String.format("INSERT INTO SUBJECT(SUBJECTCODE,SUBJECTNAME,SUBJECTSCORE,PERIOD,SUBJECTPROGRAM,CLASSCODE)"
-	    			  + "VALUES(SUBJECTCODE.NEXTVAL,?,?,?,?,?)");                                                 
+	    	  String sql = "INSERT INTO SUBJECT(SUBJECTCODE,SUBJECTNAME,SUBJECTSCORE,PERIOD,SUBJECTPROGRAM,CLASSCODE)"
+	    			  + "VALUES(SUBJECTCODE.NEXTVAL,?,?,?,?,?)";                                                 
 	    	  pstmt = conn.prepareStatement(sql);   	 
 
-		    pstmt.setString(1,dto.getSubjectName());
-		    pstmt.setString(2, dto.getSubjectScore());  
-		    pstmt.setString(3, dto.getPeriod());
-		    pstmt.setString(4, dto.getSubjectProgram());  
-		    pstmt.setInt(5, dto.getClassCode());  
-		    pstmt.executeUpdate();
+			    pstmt.setString(1,dto.getSubjectName());
+			    pstmt.setString(2, dto.getSubjectScore());  
+			    pstmt.setString(3, dto.getPeriod());
+			    pstmt.setString(4, dto.getSubjectProgram());  
+			    pstmt.setInt(5, dto.getClassCode());  
+			    pstmt.executeUpdate();
 	    DBUtil.close();
 	   
-	    //DBUtil.close();  
+	
 	      } catch (Exception e) {
 	         System.out.println(e.toString());
 	      }
@@ -99,7 +99,6 @@ public class SubjectDAO {
 	}//subjectSearch
 /////////////////////////////////////////////////////////////////////////////////	
 	public  void subjectRoomUpdate(SubjectDTO dto){
-		System.out.println("DAO 업데이트");
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;	
 		try {
@@ -128,7 +127,6 @@ public class SubjectDAO {
 /////////////////////////////////////////////////////////////////////////////////	
 
 	public void subjectDelete(SubjectDTO dto){
-		System.out.println("메롱");
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;	
 		try {
@@ -144,8 +142,7 @@ public class SubjectDAO {
 			}
 			DBUtil.close();				
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-		System.out.println(e.toString());
+				System.out.println(e.toString());
 		}
 	}//subjectDelete	`
 /////////////////////////////////////////////////////////////////////////////////	

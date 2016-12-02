@@ -49,9 +49,7 @@ public class LectureRoomAssignDAO {
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;	
 		ResultSet rs = null;		
-		String sql  = "SELECT * FROM LECTURE_ROOM_ASSIGN ORDER BY  LECTUREASSIGNROOMCODE ASC";			
-		System.out.println("lectureAssignRoomListAll 여기까지는 들어온다0");
-
+		String sql  = "SELECT * FROM LECTURE_ROOM_ASSIGN ORDER BY  LECTUREASSIGNROOMCODE ASC";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -65,11 +63,9 @@ public class LectureRoomAssignDAO {
 				}
 				DBUtil.close();								
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.toString());
 		}
 		return list;						
-	
 	}//lectureAssignRoomListAll
 	
 	public  ArrayList<LectureRoomAssignDTO> lectureAssignRoomSearch (){
@@ -82,19 +78,14 @@ public class LectureRoomAssignDAO {
 		int lectureAssignRoomCode = scan.nextInt();
 		
 		String sql  ="SELECT * FROM LECTURE_ROOM_ASSIGN WHERE LECTUREASSIGNROOMCODE =?  ORDER BY  LECTUREASSIGNROOMCODE ASC";	
-		System.out.println("lectureAssignRoomSearch 들어온다1");
 		try {
 			pstmt  	=  conn.prepareStatement(sql);
 			pstmt.setInt(1, lectureAssignRoomCode);
 			rs		=  pstmt.executeQuery();
-			System.out.println(sql);
-			System.out.println("lectureAssignRoomSearch 들어온다2");
 			while (rs.next()){
-				System.out.println("lectureAssignRoomSearch 들어온다3");
 				 dto.setLectureAssignRoomCode(rs.getInt("lectureAssignRoomCode"));
 			     dto.setCurriculumCode(rs.getInt("curriculumCode"));
 			     dto.setLectureRoomCode(rs.getInt("lectureRoomCode"));  
-			     System.out.println("lectureAssignRoomSearch 들어온다4");
              list.add(dto);   
 			}
 			DBUtil.close();		
@@ -106,26 +97,21 @@ public class LectureRoomAssignDAO {
 	}//lectureAssignRoomSearch
 		
 	public  void lectureAssignRoomUpdate(LectureRoomAssignDTO dto){
-		System.out.println("DAO 업데이트");
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;	
-		
-		System.out.println("UPDATE 들어온다");
-	
+
 		try {
 			String sql  = 
 					"UPDATE LECTURE_ROOM_ASSIGN SET CURRICULUMCODE = ?, LECTUREROOMCODE= ? WHERE  LECTUREASSIGNROOMCODE =?"		;
 			
-			pstmt = conn.prepareStatement(sql);//객체를 생성하고 
-			System.out.println(sql);		
+			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, dto.getCurriculumCode());
 			pstmt.setInt(2, dto.getLectureRoomCode());
 			pstmt.setInt(3, dto.getLectureAssignRoomCode());
 					
 			int  rs  = pstmt.executeUpdate();
-			if(rs != 0){
-			
+			if(rs != 0){	
 				System.out.println("수정 완료 되었습니다 ");
 				DBUtil.close();
 			}else{
@@ -135,14 +121,12 @@ public class LectureRoomAssignDAO {
 			System.out.println("메롱");
 			System.out.println(e.toString());
 		}	
-	}//lectureAssignRoomUpdate
-	
+	}//lectureAssignRoomUpdate	
 		public  void lectureAssignRoomDelete(LectureRoomAssignDTO dto){
 			System.out.println("메롱");
 			Connection conn = DBUtil.open();
 			PreparedStatement pstmt = null;	
 			try {
-				System.out.println("delete 들어온다");
 				String sql  ="DELETE  FROM LECTURE_ROOM_ASSIGN WHERE LECTUREASSIGNROOMCODE = ?";		
 				System.out.println(sql);
 				

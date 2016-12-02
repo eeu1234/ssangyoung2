@@ -43,7 +43,7 @@ public class StudentDAO {
 		    	
 	      } catch (Exception e) {
 	         System.out.println(e.toString());
-	        System.out.println("엥");
+	     
 	        
 	      }
 	}//add
@@ -96,7 +96,6 @@ public class StudentDAO {
 			pstmt.setInt(1, studentNumber);
 			rs		=  pstmt.executeQuery();
 			while (rs.next()){
-				System.out.println("studentSearch  3");	    
 				 dto.setStudentNumber(rs.getInt("studentNumber"));
 			     dto.setStudentName(rs.getString("studentName"));
 			     dto.setPassword(rs.getInt("password"));

@@ -24,14 +24,8 @@ public class PeriodDAO {
 		}		
 	}// 생성자
 
-/*
-int periodCode;
-int periodNum;
-int curriculumCode;
-int dayCode;
-*/
+	
 	public  void add(PeriodDTO dto){
-		System.out.println("들어온다.");
 		Connection conn = DBUtil.open();
 	    PreparedStatement pstmt = null;
 	      try {    	  
@@ -140,12 +134,10 @@ int dayCode;
 		PreparedStatement pstmt = null;	
 		
 		System.out.println("UPDATE 들어온다");
-	
 		try {
 			String sql  = 
 					"UPDATE PERIOD SET  PERIODNUM =?, CURRICULUMCODE =?, DAYCODE =? WHERE  PERIODCODE =?";	
 			pstmt = conn.prepareStatement(sql); 
-			System.out.println(sql);
 	
 			pstmt.setInt(1, dto.getPeriodNum());
 			pstmt.setInt(2, dto.getCurriculumCode());
@@ -160,11 +152,9 @@ int dayCode;
 			}else{
 				System.out.println("수정 안되었습니다 ");
 			}
-			
-			
+						
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("메롱");
 			System.out.println(e.toString());
 		}	
 	}//updatePeriod

@@ -20,10 +20,7 @@ public class StudentMain {
 	
 	
 	public static void main(String[] args) {	
-	//	LectureRoomDAO dao = new LectureRoomDAO();
-	
-	
-	
+
 		menu();
 		
 	}
@@ -203,7 +200,7 @@ public class StudentMain {
 		
 		list = dao.studentSearch();
 		for(StudentDTO  dto : list){
-			System.out.printf("%d,%s, %d, %s,%d \n ",
+			System.out.printf("%9d,%s, %d, %s,%d \n ",
 					dto.getStudentNumber(),
 					dto.getStudentName(),
 					dto.getPassword(),
@@ -230,7 +227,7 @@ public class StudentMain {
 		System.out.print("[수정 될 비밀번호 입력] : ");
 			int studentPassword	= scan.nextInt();
 			scan.nextLine();
-		System.out.print("수정 될 이메일 입력] : ");
+		System.out.print("[수정 될 이메일 입력] : ");
 			String studentEmail	= scan.nextLine();
 		
 		dto.setStudentName(studentName);
