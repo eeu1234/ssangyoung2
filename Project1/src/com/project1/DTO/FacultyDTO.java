@@ -8,6 +8,10 @@ public class FacultyDTO {
 	private String passWord;
 	private String email;
 	private String classCode;
+	
+	
+	
+	
 	public String getStaffCode() {
 		return staffCode;
 	}

@@ -106,69 +106,6 @@ public class Faculty extends Function {
 	}// i_list
 
 
-	//	/**
-	//	 * 교원등록
-	//	 */
-	//	public static void add() {
-	//		String classCode = "";
-	//		String staffCode = "";
-	//		// 가입한다
-	//		// 1.자동증가
-	//		// 2.이름
-	//		// 3.구분코드
-	//		// 4.비밀번호
-	//		// 5.이메일
-	//		// 6.학과이름 ---> code code 삽입
-	//
-	//		System.out.print("이름:");
-	//		String name = scan.nextLine();
-	//
-	//		System.out.print("구분번호:");
-	//		String between = scan.nextLine();
-	//
-	//		System.out.print("비밀번호:");
-	//		String password = scan.nextLine();
-	//
-	//		System.out.print("이메일:");
-	//		String email = scan.nextLine();
-	//
-	//		System.out.print("학과명 : ");
-	//		String className = scan.nextLine();
-	//
-	//		DepartmentDAO daoD = new DepartmentDAO();
-	//		ArrayList<DepartmentDTO> list = daoD.departmentList();
-	//
-	//		for (DepartmentDTO dto : list) {
-	//			if (className.equals(dto.getClassName())) {
-	//				classCode = dto.getClassCode();
-	//			}
-	//
-	//		}
-	//
-	//		if (classCode != null) {
-	//			FacultyDAO dao = new FacultyDAO();
-	//			FacultyInstructorDTO dto = new FacultyInstructorDTO();
-	//			
-	//			dto.setStaffCode(staffCode);
-	//			dto.setStaffName(name);
-	//			dto.setBetweenCode(between);
-	//			dto.setPassword(password);
-	//			dto.setEmail(email);
-	//			dto.setClasscode(classCode);
-	//
-	//			dao.add(dto);
-	//		}
-	//		else{
-	//			System.out.println("고장남");
-	//			
-	//		}
-	//
-	//	}// add
-
-
-
-
-
 	/**
 	 *메인메뉴
 	 */
@@ -177,11 +114,11 @@ public class Faculty extends Function {
 		boolean flag = true;
 		while (flag) {
 			System.out.println("<MENU> ");
-			System.out.println("1.교원 ");
-			System.out.println("2.교육과정 ");
-			System.out.println("0.메뉴");
+			System.out.println("【1.교원】 ");
+			System.out.println("【2.교육과정】 ");
+			System.out.println("【0.메뉴】");
 
-			System.out.println("번호 입력: ");
+			System.out.println("【번호 입력】: ");
 
 			String n = scan.nextLine();
 
@@ -211,12 +148,12 @@ public class Faculty extends Function {
 		boolean flag = true;
 		while (flag) {
 			System.out.println("<MENU> ");
-			System.out.println("1.교육과정 리스트");
-			System.out.println("2.교육과정 검색");
-			System.out.println("3.개인 교육과정");
-			System.out.println("0.메뉴");
+			System.out.println("【1.교육과정 리스트】");
+			System.out.println("【2.교육과정 검색】");
+			System.out.println("【3.개인 교육과정】");
+			System.out.println("【0.메뉴】");
 
-			System.out.println("번호 입력: ");
+			System.out.println("【번호 입력】: ");
 
 			String n = scan.nextLine();
 
@@ -246,11 +183,11 @@ public class Faculty extends Function {
 		boolean flag = true;
 		while (flag) {
 			System.out.println("<메인 관리항목 선택> ");
-			System.out.println("1.교원 리스트 ");
-			System.out.println("2.교원 검색 ");
-			System.out.println("0.로그아웃");
+			System.out.println("【1.교원 리스트】 ");
+			System.out.println("【2.교원 검색】 ");
+			System.out.println("【0.로그아웃】");
 
-			System.out.println("번호 입력: ");
+			System.out.println("【번호 입력】: ");
 
 			String n = scan.nextLine();
 
