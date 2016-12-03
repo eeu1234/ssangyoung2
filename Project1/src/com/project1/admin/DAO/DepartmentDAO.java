@@ -43,7 +43,7 @@ public class DepartmentDAO {
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;	
 		ResultSet rs = null;		
-		String sql  = "SELECT * FROM DEPARTMENT ORDER BY CLASSCODE ASC";			
+		String sql  = "SELECT CLASSCODE, CLASSNAME FROM DEPARTMENT";			
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();

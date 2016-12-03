@@ -84,7 +84,7 @@ public class DepartmentMain {
 	}//init
 	
 	
-	private static void listDepartment(){
+	public  static void listDepartment(){
 		 list = dao.departmentListAll();
 		for(DepartmentDTO  dto : list){		
 			System.out.printf("%d,%s \n ",

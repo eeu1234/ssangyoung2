@@ -23,14 +23,11 @@ public class AdminMainClass {
 		        System.out.println("[학생을 선택 하셨습니다.]");
 		         StudentMain student = new StudentMain();
 		         student.menu();
-		         //student.
+		        
 		         }else if(n.equals("2")){//교원
 				System.out.println("[교원을 선택 하셨습니다.]");
-			
-		         StaffMain    staff = new StaffMain();
-		         
+		         StaffMain    staff = new StaffMain();		         
 		         staff.menu();
-		         
 		         }else if(n.equals("3")){//수강신청
 		        //수강신청
 		         System.out.println("[수강 신청 메뉴를  선택 하셨습니다.]");

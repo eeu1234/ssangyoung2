@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.project1.admin.DAO.DBUtil;
+import com.project1.admin.DAO.DepartmentDAO;
 import com.project1.admin.DAO.LectureRoomDAO;
 import com.project1.admin.DAO.StudentDAO;
 import com.project1.admin.DTO.LectureRoomDTO;
@@ -16,7 +17,7 @@ public class StudentMain {
 	private static StudentDTO dto = new StudentDTO();
 	private static ArrayList<StudentDTO> list = null;
 	private static AdminMainClass mainView = new AdminMainClass();
-	
+	private static DepartmentMain ma = new DepartmentMain();
 	
 	
 	public static void main(String[] args) {	
@@ -38,7 +39,7 @@ public class StudentMain {
 		System.out.print("업무선택 : ");
 		String n = scan.nextLine();
 		if(n.equals("1")){
-
+			ma.listDepartment();
 			System.out.println("[학생 등록]");
 			addStudent();
 			menu();
@@ -58,6 +59,7 @@ public class StudentMain {
 			menu();
 		}else if(n.equals("5")){
 			listStudent();
+			ma.listDepartment();
 			System.out.println("[특정 학생 정보 수정]");
 			updateStudent();
 			menu();
@@ -73,9 +75,7 @@ public class StudentMain {
 	
 	
 	public static void retureMethod(){
-		 
-		
-	
+
 		  System.out.println("[1.다시 입력을 원하면][2.처음으로 돌아가고 싶으시다면][3. 프로그램 종료]");
 		  int choi = scan.nextInt();
 		  
@@ -86,7 +86,7 @@ public class StudentMain {
 	                   break;
 	      case 2   : System.out.println("[처음으로 복귀].");
 	      		AdminMainClass mainView = new AdminMainClass();
-	      		mainView.mainMenu();
+	      			  mainView.mainMenu();
 	                   break;
 	      case 3  : System.out.println("[프로그램 종료].");
 	      			   DBUtil.close();
@@ -96,20 +96,14 @@ public class StudentMain {
 	      
 	                   break;
 	    }
-		
-		
-		
-	}
+	}//retureMethod
 	
 	
 	public static void addStudent() {
 		
-//	boolean flag  = true;
-	
-
 		    System.out.print("[학생 학번 입력해 주세요] : ");
 		    int studentNumber = scan.nextInt();
-		   // scan.skip("\r\n");
+		   
 		    scan.nextLine();
 		    String numberTest = Integer.toString(studentNumber);
 		    if(numberTest.length() == 9 && (studentNumber>=111111111 || studentNumber <= 999999999)){
@@ -120,12 +114,8 @@ public class StudentMain {
 		  System.out.print("[학생 이름 입력해 주세요] : ");
 		    String studentName = scan.nextLine();
 		    
-		    	
-		    
-		    
-		
 		    	for(int i =0; i<= 10; i++ ){
-		    		//(a  >= 65  && a<= 125)
+		
 		    	char a= studentName.charAt(i);
 		    		if(!(studentName.length() <= 10)){
 		    			System.out.println("[이름 재검사]");
@@ -140,6 +130,7 @@ public class StudentMain {
 		  System.out.print("[학생 비밀번호 입력해 주세요] : ");
 		    System.out.println("[입력제한수 20이하]");
 		    int studentPassword = scan.nextInt();
+		    
 		    scan.skip("\r\n");	  
 		    String passLength = Integer.toString(studentPassword);
 		   
@@ -158,22 +149,24 @@ public class StudentMain {
 		    
 		    System.out.print("[학생 학과코드 입력해 주세요] : ");
 		    int studentClassCode = scan.nextInt();
-		    scan.skip("\r\n");	  
+		    //scan.skip("\r\n");
+		    scan.nextLine();
+		    System.out.println("studentClassCode");
 		    
 			//학번 9자리  숫자만  ] [ 이름  특스문자 제외 ]  [ 비번   숫자 ][이메일 @ . 영어][숫자만]
 		    
 
 		    StudentDTO  dto =	new StudentDTO();
-		    StudentDAO  dao =  	new StudentDAO();
- 		    System.out.println("dto 에 들어간다");
+		    System.out.println("문제0");
 		    	 dto.setStudentNumber(studentNumber);
 		    	 dto.setStudentName(studentName);
 		    	 dto.setPassword(studentPassword);
 		    	 dto.setEmail(studentEmail);
 		    	 dto.setClassCode(studentClassCode);
-	
+
+		    	 
 		    dao.add(dto);  
-		    
+		    System.out.println("문제");
 	}//add
 	
 	public static void init(){
@@ -183,7 +176,7 @@ public class StudentMain {
 	private static void listStudent(){
 		 list = dao.studentListAll();
 		for(StudentDTO  dto : list){		
-			System.out.printf("%d,%s, %d, %s,%d \n ",
+			System.out.printf("%d,%s, %d,%s,%d \n ",
 				dto.getStudentNumber(),
 				dto.getStudentName(),
 				dto.getPassword(),

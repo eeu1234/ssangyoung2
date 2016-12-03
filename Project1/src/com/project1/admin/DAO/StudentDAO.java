@@ -7,21 +7,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.project1.admin.DTO.DepartmentDTO;
 import com.project1.admin.DTO.LectureRoomDTO;
 import com.project1.admin.DTO.StudentDTO;
 import com.project1.admin.main.AdminMainClass;
 
 public class StudentDAO {
 	private Scanner scan =  new Scanner(System.in);
+	
+	
 	public  void add(StudentDTO dto){
 
 	
 		Connection conn =DBUtil.open();
 	    PreparedStatement pstmt = null;
-	    
+	       
 	      try {    	  
 	    	  String sql ="INSERT INTO STUDENT(STUDENTNUMBER,STUDENTNAME,PASSWORD,EMAIL,CLASSCODE)"+ "VALUES(?,?,?,?,?)";                                                 
-	    	  pstmt = conn.prepareStatement(sql);   	 
+	    	    pstmt = conn.prepareStatement(sql);   	 
  	  
 		    	pstmt.setInt(1, dto.getStudentNumber());
 			    pstmt.setString(2, dto.getStudentName());
@@ -37,10 +40,7 @@ public class StudentDAO {
 				  DBUtil.close();
 			  }else{
 				  System.out.println("[학생 등록 실패]");
-
 			  }
-		
-		    	
 	      } catch (Exception e) {
 	         System.out.println(e.toString());
 	     
