@@ -7,6 +7,7 @@ import com.project1.DAO.StudentDAO;
 import com.project1.DTO.FacultyDTO;
 import com.project1.DTO.StudentDTO;
 import com.project1.admin.Admin;
+import com.project1.admin.main.AdminMainClass;
 import com.project1.faculty.Faculty;
 import com.project1.student.Student;
 
@@ -78,14 +79,8 @@ public class main extends Function {
 			System.out.print("\t\t\t\t\t【비밀번호】 : ");
 			pass = scan.nextLine();
 
-
-
-
-
 			//학생 ,교원 , 관리자 구분
 			String level =  id.substring(0,1);
-
-
 
 
 			//교원
@@ -140,14 +135,15 @@ public class main extends Function {
 
 
 			}else if(level.equals("a")){
-				Admin.Admin();
+				AdminMainClass ma = new AdminMainClass();
+				ma.mainMenu();
 				flag= false;
 			}
 
 
 			else{
 
-			}
+			}	
 
 
 
