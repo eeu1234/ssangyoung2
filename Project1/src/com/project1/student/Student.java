@@ -283,7 +283,7 @@ public class Student {
 		
 		}//while
 
-	}// curriculum_serch
+	}// curriculum_serchsssss
 
 	/**
 	 * 수강신청 등록
