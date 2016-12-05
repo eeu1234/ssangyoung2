@@ -3,6 +3,7 @@ package com.project1.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -69,6 +70,41 @@ public class StudentDAO {
 
 
 	}//studentSearch()
+	
+	
+	/*
+	 * private String lectureCode;
+	private String curriculumCode;
+	private String studentNumber;
+	 */
+	
+	public ArrayList<StudentDTO> list(){
+		
+		ArrayList<StudentDTO> list = new ArrayList<StudentDTO>();		
+		Connection conn = DBUtil.open();
+		PreparedStatement pstmt = null;	
+		ResultSet rs = null;		
+		String sql  = "SELECT * FROM COURSE_APPLICATION";			
+	
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+				while (rs.next()){
+					StudentDTO dto = new StudentDTO();
+					 dto.setLectureCode(rs.getInt("lectureCode"));
+				     dto.setCurriculumCode(rs.getInt("curriculumCode"));
+					 dto.setStudentNumber(rs.getString("studentNumber"));
+	             list.add(dto);  
+				}
+				 DBUtil.close();								
+		} catch (SQLException e) {
+			System.out.println(e.toString());
+		}
+		return list;						
+	
+	};
+	
+	
 	
 	/**
 	 * 

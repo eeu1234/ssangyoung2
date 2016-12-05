@@ -57,6 +57,8 @@ public class StudentDAO {
 		ResultSet rs = null;		
 		String sql  = "SELECT * FROM STUDENT ORDER BY  STUDENTNUMBER ASC";			
 	
+		
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();

@@ -1,5 +1,9 @@
 package com.project1.admin.main;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -186,6 +190,41 @@ public class StudentMain {
 		}//향상된 for문
 		
 	}//list
+	
+	
+	
+	public ArrayList<StudentDTO> list(){
+		
+		ArrayList<StudentDTO> list = new ArrayList<StudentDTO>();		
+		Connection conn = DBUtil.open();
+		PreparedStatement pstmt = null;	
+		ResultSet rs = null;		
+		String sql  = "SELECT * FROM COURSE_APPLICATION";			
+	
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+				while (rs.next()){
+					StudentDTO dto = new StudentDTO();
+					 dto.setStudentNumber(rs.getInt("studentNumber"));
+				     dto.setStudentName(rs.getString("studentName"));
+				     dto.setPassword(rs.getInt("password"));
+				     dto.setEmail(rs.getString("email"));
+				     dto.setClassCode(rs.getInt("classCode"));
+				     
+	             list.add(dto);  
+				}
+				 DBUtil.close();								
+		} catch (SQLException e) {
+			System.out.println(e.toString());
+		}
+		return list;						
+	
+	};
+	
+	
+	
+	
 	
 	private static void searchStudent(){
 		listStudent();

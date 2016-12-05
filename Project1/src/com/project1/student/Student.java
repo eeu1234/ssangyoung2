@@ -285,6 +285,13 @@ public class Student {
 
 	}// curriculum_serchsssss
 
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 수강신청 등록
 	 */
@@ -316,6 +323,31 @@ public class Student {
 
 	}// add()
 
+	
+	/**
+	 *  리스트 출력
+	 *  private String lectureCode;
+		private String curriculumCode;
+		private String studentNumber;
+	 */
+static	ArrayList<StudentDTO> list = null;
+	private static void list(){
+		StudentDAO dao = new StudentDAO();
+		 list = dao.list();
+		for(StudentDTO  dto : list){		
+			System.out.printf("수강코드 %d 교육과정코드%d  학번 %s \n ",
+				dto.getLectureCode(),
+				dto.getCurriculumCode(),
+				dto.getStudentNumber()
+				
+			);
+		}//향상된 for문
+		
+	}//list
+	
+	
+	
+	
 	/**
 	 * 수강삭제
 	 */
@@ -323,6 +355,11 @@ public class Student {
 
 		boolean flag = true;
 
+		list();
+		
+		
+		
+		
 		while (flag) {
 
 			System.out.print("【삭제할 수강신청코드 입력】:");
