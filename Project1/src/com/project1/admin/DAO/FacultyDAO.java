@@ -16,9 +16,16 @@ public class FacultyDAO {
 		System.out.println("들어온다.");
 		Connection conn =DBUtil.open();
 	    PreparedStatement pstmt = null;
-	  
+	 /*
+	  * private int 	staffCode;
+	private String	staffName;
+	private String	betweenCode;
+	private String	password;
+	private String	email;
+	private int 	classCode; 
+	  */
 	      try {    	  
-	    	  String sql ="INSERT INTO FACULITY(STAFFCODE,STAFFNAME,BETWEENCODE,EMAIL,CLASSCODE)"+ "VALUES(?,?,?,?,?)";                                                 
+	    	  String sql ="INSERT INTO FACULTY(STAFFCODE,STAFFNAME,BETWEENCODE,PASSWORD,EMAIL,CLASSCODE)"+ "VALUES(?,?,?,?,?,?)";                                                 
 	    	  pstmt = conn.prepareStatement(sql);   	  	  
 		    	pstmt.setInt(1, dto.getStaffCode());
 			    pstmt.setString(2, dto.getStaffName());
@@ -118,7 +125,6 @@ public class FacultyDAO {
 					+ " WHERE  STAFFCODE =?";
 			pstmt = conn.prepareStatement(sql);//객체를 생성하고 
 			
-		System.out.println(sql);				
 
 		    pstmt.setString(1, dto.getStaffName());
 		    pstmt.setString(2, dto.getBetweenCode());

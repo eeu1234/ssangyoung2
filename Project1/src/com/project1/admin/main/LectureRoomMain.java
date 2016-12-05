@@ -112,6 +112,7 @@ public class LectureRoomMain {
 	}//list
 	
 	private static void searchLectureRoom(){
+		list();
 		System.out.print("원하시는 강의실 넘버를 입력해주세요 : ");
 		LectureRoomDAO dao = new LectureRoomDAO();		
 
@@ -129,6 +130,7 @@ public class LectureRoomMain {
 	}//search
 
 	private static void deleteLectureRoom(){
+		list();
 		System.out.print("삭제 하실 강의실 번호를 적어 주세요 : " );
 			int lectureRoomNum = scan.nextInt();
 			scan.nextLine();
@@ -138,7 +140,7 @@ public class LectureRoomMain {
 		
 	}//deletePeriod
 	private static void updateLectureRoom(){
-
+		list();
 			System.out.print("수정할 하실 행의 강의실 코드 입력 : ");
 		int lectureRoomCode	= scan.nextInt();
 		scan.nextLine();

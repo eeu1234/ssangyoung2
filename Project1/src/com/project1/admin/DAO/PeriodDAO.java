@@ -36,7 +36,6 @@ public class PeriodDAO {
 			    pstmt.setInt(2,dto.getCurriculumCode());
 			    pstmt.setInt(3, dto.getDayCode());  
 			    pstmt.executeUpdate();     
-	    System.out.println("교시 테이블 insert 완성");
 	    DBUtil.close();  
 	      } catch (Exception e) {
 	         System.out.println(e.toString());
@@ -65,7 +64,6 @@ public class PeriodDAO {
 				}
 				DBUtil.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.toString());
 		}
 		return list;						
@@ -133,7 +131,6 @@ public class PeriodDAO {
 		Connection conn = DBUtil.open();
 		PreparedStatement pstmt = null;	
 		
-		System.out.println("UPDATE 들어온다");
 		try {
 			String sql  = 
 					"UPDATE PERIOD SET  PERIODNUM =?, CURRICULUMCODE =?, DAYCODE =? WHERE  PERIODCODE =?";	

@@ -1,14 +1,18 @@
 package com.project1.admin.main;
 
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.project1.DAO.CurriculumDAO;
 import com.project1.admin.DAO.PeriodDAO;
 import com.project1.admin.DTO.PeriodDTO;
 
 public class PeriodMain {
 
 	private static Scanner scan = null;
+	private static PeriodDAO periodDao = new PeriodDAO();
+	private static CurriculumDAO curriculumDAO = new CurriculumDAO();
 	
 	
 	public static void main(String[] args) {
@@ -67,13 +71,18 @@ public class PeriodMain {
 	
 	public static void add() {
 		
-	System.out.println("교시 등록");
-		    System.out.print("교시를 입력해 주세요 : ");
+	System.out.println("[교시 등록]");
+			periodDao.list();
+		    System.out.print("[교시를 입력해 주세요] : ");
 		    int periodNum = scan.nextInt();
 		    scan.skip("\r\n");
-		    System.out.print("시작시간을 입력해 주세요 : ");
+		    // 교육과정 테이블 생성
+		    curriculumDAO.list();
+		    System.out.print("[교육과정 코드 입력해 주세요] : ");
 		    int curriculumCode = scan.nextInt();
-		    System.out.print("끝나는 시간을 입력해 주세요 : ");
+		    //요일 테이블
+		    System.out.print("[요일 코드 입력해 주세요] : ");
+		    periodDao.list();
 		    int dayCode = scan.nextInt();	  
 		    
 		    	PeriodDTO  dto =	new PeriodDTO();
@@ -113,12 +122,9 @@ public class PeriodMain {
 	
 	private static void searchPeriod(){
 		PeriodDAO dao = new PeriodDAO();
-		PeriodDTO  dto1 = new PeriodDTO();
+		//PeriodDTO  dto1 = new PeriodDTO();
 		ArrayList<PeriodDTO> list = dao.searchPeriod();;
-		//System.out.print("원하시는 교시를 입력해주세요 : ");
-		//int periodNum = scan.nextInt();
-		//scan.nextLine();
-		//dto1.setPeriodNum(periodNum);
+	
 		for(PeriodDTO  dto : list){
 			
 			System.out.printf("%s,%s, %s, %s\n ",
@@ -135,11 +141,12 @@ public class PeriodMain {
 		
 		PeriodDAO dao = new PeriodDAO();
 		PeriodDTO  dto = new PeriodDTO();
-		System.out.print("삭제 하실 교시를 적어 주세요 : " );
+		list();
+		System.out.print("[삭제 하실 교시를 적어 주세요] : " );
 		int periodNum = scan.nextInt();
 		scan.nextLine();
 		dto.setPeriodNum(periodNum);
-		System.out.println("여기까지는 들어온다");
+		
 		dao.delPeriod(dto);
 		
 	}//deletePeriod
@@ -154,15 +161,17 @@ public class PeriodMain {
 */
 		PeriodDAO  dao = new PeriodDAO();
 		PeriodDTO  dto = new PeriodDTO();	
-		
+		list();
 		System.out.print("수정할 하실 행의 교시 코드 입력 : ");
 		int periodCode	= scan.nextInt();
 		scan.nextLine();
 		System.out.print("수정하실 교시 입력 : ");
 		int periodNum	= scan.nextInt();
 		scan.nextLine();
+		curriculumDAO.list();
 		System.out.print("수정하실 교육과정  입력 : ");
 		int curriculumCode= scan.nextInt();
+		System.out.println("[1.월요일][2. 화요일][3. 수요일][4. 목요일][5. 금요일]");
 		System.out.print("수정하실  요일코드 입력 : ");
 		int dayCode	= scan.nextInt();
  

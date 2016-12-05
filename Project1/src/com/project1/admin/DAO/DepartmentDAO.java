@@ -64,6 +64,7 @@ public class DepartmentDAO {
 /////////////////////////////////////////////////////////////////////////////////	
 	
 	public  ArrayList<DepartmentDTO> departmentSearch (){
+		departmentListAll();
 		Scanner scan = new Scanner(System.in);
 		ArrayList<DepartmentDTO> list = new ArrayList<DepartmentDTO>();
 		Connection conn = DBUtil.open();

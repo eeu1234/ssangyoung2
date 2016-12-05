@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import com.project1.admin.DAO.DepartmentDAO;
 import com.project1.admin.DTO.DepartmentDTO;
-
+//12월 05일 수정
 public class DepartmentMain {
 
 	private static Scanner scan = null;
@@ -23,7 +23,7 @@ public class DepartmentMain {
 		init();
 		
 		
-		System.out.println("[1.학과선택]");
+		System.out.println("[1.학과 추가 등록]");
 		System.out.println("[2.학과 정보 출력]");
 		System.out.println("[3.특정 학과 정보 출력]");
 		System.out.println("[4.특정 학과 정보 수정]");
@@ -63,6 +63,7 @@ public class DepartmentMain {
 	
 	
 	public static void addDepartment() {
+			listDepartment();
 		    System.out.print("[학과 코드 입력해 주세요] : ");
 		    int classCode = scan.nextInt();
 		    scan.skip("\r\n");
@@ -95,10 +96,10 @@ public class DepartmentMain {
 	}//listDepartment
 	
 	private static void searchDepartment(){
-	
+		
 		DepartmentDAO dao = new DepartmentDAO();		
 		
-		
+		listDepartment();
 		list = dao.departmentSearch();
 		for(DepartmentDTO  dto : list){
 				System.out.printf("%d,%s \n ",
@@ -109,6 +110,7 @@ public class DepartmentMain {
 	}//searchDepartment
 
 	private static void updateDepartment(){
+		listDepartment();
 		System.out.print("[수정할 학과 코드 입력] : ");
 			int classCode = scan.nextInt();
 			scan.nextLine();

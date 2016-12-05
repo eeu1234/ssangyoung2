@@ -31,6 +31,7 @@ public class SubjectDAO {
 			    pstmt.setInt(5, dto.getClassCode());  
 			    pstmt.executeUpdate();
 	    DBUtil.close();
+	    pstmt.close();
 	   
 	
 	      } catch (Exception e) {

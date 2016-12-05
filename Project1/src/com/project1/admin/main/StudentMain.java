@@ -39,7 +39,7 @@ public class StudentMain {
 		System.out.print("업무선택 : ");
 		String n = scan.nextLine();
 		if(n.equals("1")){
-			ma.listDepartment();
+			
 			System.out.println("[학생 등록]");
 			addStudent();
 			menu();
@@ -145,8 +145,9 @@ public class StudentMain {
 		    if(!(studentEmail.length() <=25  && studentName.contains("@"))&& studentName.contains(".")){
 		     
 		    	retureMethod();
+		    	
 		    }
-		    
+		    ma.listDepartment();
 		    System.out.print("[학생 학과코드 입력해 주세요] : ");
 		    int studentClassCode = scan.nextInt();
 		    //scan.skip("\r\n");
@@ -164,7 +165,6 @@ public class StudentMain {
 		    	 dto.setEmail(studentEmail);
 		    	 dto.setClassCode(studentClassCode);
 
-		    	 
 		    dao.add(dto);  
 		    System.out.println("문제");
 	}//add
@@ -188,6 +188,7 @@ public class StudentMain {
 	}//list
 	
 	private static void searchStudent(){
+		listStudent();
 		System.out.print("[찾으시는  학생넘버를 입력해주세요] : ");
 		StudentDAO dao = new StudentDAO();		
 		
@@ -205,16 +206,17 @@ public class StudentMain {
 		}
 	}//searchStudent
 	private static void deleteStudent(){
+		listStudent();
 		System.out.print("[삭제를 원하시면 학생 코드를 적어 주세요] : " );
 			int studentNumber = scan.nextInt();
 			scan.nextLine();
 			dto.setStudentNumber(studentNumber);
-			System.out.println("여기까지는 들어온다");
-		//	dao.studentChildDelete(dto);
+		
 			dao.studentDelete(dto);
 		
 	}//deleteStudent
 	private static void updateStudent(){
+		listStudent();
 		System.out.print("[수정하실 학생 이름 입력] : ");
 			String studentName = scan.nextLine();
 		System.out.print("[수정 될 비밀번호 입력] : ");

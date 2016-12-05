@@ -79,14 +79,8 @@ public class main extends Function {
 			System.out.print("\t\t\t\t\t【비밀번호】 : ");
 			pass = scan.nextLine();
 
-
-
-
-
 			//학생 ,교원 , 관리자 구분
 			String level =  id.substring(0,1);
-
-
 
 
 			//교원
@@ -149,7 +143,7 @@ public class main extends Function {
 
 			else{
 
-			}
+			}	
 
 
 

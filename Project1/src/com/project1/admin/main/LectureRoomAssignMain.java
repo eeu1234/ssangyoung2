@@ -3,16 +3,19 @@ package com.project1.admin.main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.project1.DAO.CurriculumDAO;
 import com.project1.admin.DAO.LectureRoomAssignDAO;
 import com.project1.admin.DAO.LectureRoomDAO;
 import com.project1.admin.DTO.LectureRoomAssignDTO;
 import com.project1.admin.DTO.LectureRoomDTO;
-
+//z
 public class LectureRoomAssignMain {
 
 	private static Scanner scan = null;
 	private static LectureRoomAssignDAO dao = new LectureRoomAssignDAO();
 	private static LectureRoomAssignDTO dto = new LectureRoomAssignDTO();
+	private static LectureRoomDAO lectureRoomDao = new LectureRoomDAO();
+	private static CurriculumDAO curriculumDAO = new CurriculumDAO();
 	private static ArrayList<LectureRoomAssignDTO> list = null;
 	public static void main(String[] args) {
 		
@@ -66,9 +69,11 @@ public class LectureRoomAssignMain {
 	
 
 	public static void add() {
+			curriculumDAO.list();
 		    System.out.print("교육 과정  이름 입력해 주세요 : ");
 		    int curriculumCode = scan.nextInt();
 		    scan.nextLine();
+		    lectureRoomDao.lectureRoomListAll();
 		    System.out.print(" 강의실 코드 입력해 주세요 : ");
 		    int lectureRoomCode = scan.nextInt();
 		    scan.nextLine();
@@ -101,7 +106,7 @@ public class LectureRoomAssignMain {
 	
 	private static void searchLectureRoom(){
 		System.out.print("찾으시는 강의배정 넘버를 입력해주세요 : ");
-		
+		list();
 		list = dao.lectureAssignRoomSearch();
 		for(LectureRoomAssignDTO  dto : list){
 			System.out.printf("%d,%d,%d \n",
@@ -113,9 +118,14 @@ public class LectureRoomAssignMain {
 	}//searchLectureRoom
 
 	private static void deleteLectureRoom(){
-		System.out.print("삭제 하실 강의실 번호를 적어 주세요 : " );
-	
+		System.out.println("강의실 정보");
+		list();
+		//교육과정 list를 출력해줘야 한다 
+		System.out.println("교육과정 정보 ");
 		
+		System.out.print("삭제 하실 강의실 번호를 적어 주세요 : " );
+		
+		lectureRoomDao.lectureRoomListAll();
 			int lectureAssignRoomCode = scan.nextInt();
 			scan.nextLine();
 			dto.setLectureAssignRoomCode(lectureAssignRoomCode);
@@ -126,13 +136,16 @@ public class LectureRoomAssignMain {
 			
 	
 	private static void updateLectureRoom(){
-
+			list();
 		System.out.print("수정하실 강의실의 배정코드를 입력 : ");
 			int lectureAssignRoomNum	= scan.nextInt();
 			scan.nextLine();
+			curriculumDAO.list();
+			
 		System.out.print("수정값 교육과정 코드 입력 : ");
 			int curriculumCode	= scan.nextInt();
 			scan.nextLine();
+			list();	
 		System.out.print("수정값 강의실 코드 입력 : ");
 			int lectureRoomCode	= scan.nextInt();
 			scan.nextLine();

@@ -3,6 +3,7 @@ package com.project1.admin.main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.project1.admin.DAO.DepartmentDAO;
 import com.project1.admin.DAO.FacultyDAO;
 import com.project1.admin.DTO.FacultyDTO;
 
@@ -12,6 +13,7 @@ public class StaffMain {
 	private static Scanner scan = null;
 	private static FacultyDAO dao = new FacultyDAO();
 	private static FacultyDTO dto = new FacultyDTO();
+	private static DepartmentDAO departDao = new DepartmentDAO();
 	private static ArrayList<FacultyDTO> list = null;
 	public static void main(String[] args) {
 		
@@ -36,6 +38,7 @@ public class StaffMain {
 		String n = scan.nextLine();
 		if(n.equals("1")){
 			System.out.println("[교원 등록]");
+			listStaff();
 			addStaff();
 			menu();
 		}else if(n.equals("2")){
@@ -45,7 +48,7 @@ public class StaffMain {
 		}else if(n.equals("3")){
 			System.out.println("[특정 교원 정보 출력]");
 			listStaff();
-			listStaff();
+		
 			searchStaff();
 			menu();
 		}else if(n.equals("4")){
@@ -71,18 +74,17 @@ public class StaffMain {
 	public static void addStaff() {
 /*
  * 교원
-교원번호(PK)	NUMBER	staffCode(PK)
-교원이름	VARCHAR2(15)	staffName
-구분코드	CHAR(1)	betweenCode
-비밀번호	VARCHAR2(50)	password
-이메일	VARCHAR2(50)	email
-학과코드(FK)	NUMBER	classCode(FK)
+private int 	staffCode;
+	private String	staffName;
+	private String	betweenCode;
+	private String	password;
+	private String	email;
+	private int 	classCode;
 
  * 		
  */
-
-		    System.out.print("[교원번호 입력해 주세요] : ");
-		    int staffCode = scan.nextInt();
+			System.out.print("[교원 학과코드 입력해 주세요] : ");
+			int classCode = scan.nextInt();
 		    scan.skip("\r\n");
 		    System.out.print("[교원 이름 입력해 주세요] : ");
 		    String staffName = scan.nextLine();
@@ -91,10 +93,12 @@ public class StaffMain {
 		    System.out.print("[교원 비밀번호 입력해 주세요] : ");
 		    String pssword = scan.nextLine();  	  
 		    System.out.print("[교원 이메일 입력해 주세요] : ");
-		    String email = scan.nextLine();	  
-		    System.out.print("[교원 학과코드 입력해 주세요] : ");
-		    int classCode = scan.nextInt();
-		    scan.skip("\r\n");	  
+		    String email = scan.nextLine();
+		    departDao.departmentListAll();
+		    
+		    scan.skip("\r\n");
+		    System.out.print("[교원번호 5자리를  입력해 주세요] : ");
+		    int staffCode = scan.nextInt();
 		    
 		    FacultyDTO  dto =	new FacultyDTO();
 		    FacultyDAO  dao =  	new FacultyDAO();
@@ -145,9 +149,9 @@ public class StaffMain {
 	}//searchStaff
 
 	private static void updateStaff(){
-	
-		System.out.print("[수정을 원하시는 이름 입력] : ");
-			String staffName = scan.nextLine();
+		System.out.print("[수정하실  교원코드 입력] : ");
+		int staffCode	= scan.nextInt();
+		scan.nextLine();
 		System.out.print("[원하시는 구분 교드 입력] : ");
 			String betweenCode	= scan.nextLine();
 		
@@ -155,10 +159,10 @@ public class StaffMain {
 			String password	= scan.nextLine();
 		System.out.print("[원하시는 이메일 입력] : ");
 			String email	= scan.nextLine();
-		System.out.print("[원하시는 교원코드 입력] : ");
-			int staffCode	= scan.nextInt();
-			scan.nextLine();
-			
+		listStaff();
+		
+		System.out.print("[수정을 원하시는 이름 입력] : ");
+		String staffName = scan.nextLine();	
 		dto.setStaffName(staffName);
 		dto.setBetweenCode(betweenCode);
 		dto.setPassword(password);
