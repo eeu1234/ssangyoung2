@@ -119,15 +119,15 @@ public class StudentDAO {
 		try {
 			String sql  = 
 					"UPDATE STUDENT SET  STUDENTNAME =?,"
-					+ " PASSWORD =?, EMAIL =? WHERE  STUDENTNAME =?";
+					+ " PASSWORD =?, EMAIL =? , CLASSCODE = ? WHERE  STUDENTNUMBER =?";
 			pstmt = conn.prepareStatement(sql);//객체를 생성하고 
 			
 			
 		    pstmt.setString(1, dto.getStudentName());
 		    pstmt.setInt(2, dto.getPassword());
 		    pstmt.setString(3, dto.getEmail()); 
-		    pstmt.setString(4, dto.getStudentName());
-			
+		    pstmt.setInt(4, dto.getStudentNumber());
+			pstmt.setInt(5, dto.getClassCode());
 		    pstmt.executeUpdate();
 			
 			

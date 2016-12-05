@@ -217,18 +217,27 @@ public class StudentMain {
 	}//deleteStudent
 	private static void updateStudent(){
 		listStudent();
-		System.out.print("[수정하실 학생 이름 입력] : ");
+		System.out.println("[수정 하실 학생의 학번을 입력]");
+			int studentNumber = scan.nextInt();
+			scan.nextLine();
+		System.out.print("[원하시는 학생 이름 입력] : ");
 			String studentName = scan.nextLine();
-		System.out.print("[수정 될 비밀번호 입력] : ");
+		System.out.print("[원하시는 비밀번호 입력] : ");
 			int studentPassword	= scan.nextInt();
 			scan.nextLine();
-		System.out.print("[수정 될 이메일 입력] : ");
+		System.out.print("[원하시는 이메일 입력] : ");
 			String studentEmail	= scan.nextLine();
-		
+		System.out.println("[수정 하실 학생의 학과번호을 입력]");
+		int classCode = scan.nextInt();
+		scan.nextLine();
+			
+			
+			
+		dto.setStudentNumber(studentNumber);
 		dto.setStudentName(studentName);
 		dto.setPassword(studentPassword);
 		dto.setEmail(studentEmail);
-	
+		dto.setClassCode(classCode);
 		dao.studentUpdate(dto);	
 	}//updateStudent
 

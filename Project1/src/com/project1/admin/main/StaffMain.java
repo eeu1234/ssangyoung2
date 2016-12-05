@@ -159,9 +159,8 @@ private int 	staffCode;
 			String password	= scan.nextLine();
 		System.out.print("[원하시는 이메일 입력] : ");
 			String email	= scan.nextLine();
-		listStaff();
-		
-		System.out.print("[수정을 원하시는 이름 입력] : ");
+		//listStaff();
+		System.out.print("[원하시는 이름 입력] : ");
 		String staffName = scan.nextLine();	
 		dto.setStaffName(staffName);
 		dto.setBetweenCode(betweenCode);
@@ -171,7 +170,7 @@ private int 	staffCode;
 			
 
 		dao.facultyUpdate(dto);
-	}//updateStudent
+	}//updateStudent	
 
 }//class
 	
