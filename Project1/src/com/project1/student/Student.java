@@ -132,10 +132,10 @@ public class Student {
 
 		CourseApplicationDAO dao = new CourseApplicationDAO();
 
-		System.out.println("【내 수강신청】");
+		System.out.println("\t\t\t\t----------------【내 수강신청】----------------");
 		ArrayList<myCourseApplicationDTO> list = dao.myCourse_list();
 
-		System.out.print(" \t 월\t\t\t화\t\t\t수\t\t\t목\t\t\t금\n");
+		System.out.print("\t    [월]\t\t      [화]\t\t   [수]\t\t   [목]\t\t   [금]\n");
 		System.out.print("");
 
 		System.out.print(
@@ -143,7 +143,7 @@ public class Student {
 		// 1 - 8교시
 		for (int i = 1; i < 9; i++) {
 			// 월 - 금
-			System.out.print(i + "교시" + "|");
+			System.out.print(i + "교시" + "|    ");
 
 			// 과목명출력
 			for (int j = 1; j < 6; j++) {
@@ -157,42 +157,42 @@ public class Student {
 					}
 				} // for
 
-				System.out.print("\t\t");
+				System.out.print("\t\t     ");
 			}
 			System.out.println("");
 
 			// 교수명
-			System.out.print("　　　　　");
+			System.out.print("*교시|");
 			for (int j = 1; j < 6; j++) {
 
 				for (myCourseApplicationDTO dto : list) {
 					if (i == Integer.parseInt(dto.getPeriodNum()) && j == Integer.parseInt(dto.getDayCode
 
 					())) {
-						System.out.print("▒▒" + dto.getStaffName() + "  ");
+						System.out.print(" 【" + dto.getStaffName() + "】");
 					} else {
-						System.out.print("▒▒▒▒▒");
+						System.out.print(" ");//6미만 (특수문자 1개당 * 5)씩  복사됨..
 					}
 				} // for
-				System.out.print("\t\t");
+				System.out.print("\t");
 			}
 			System.out.println("");
 
 			// 학점
-			System.out.print("　　　　　");
+			System.out.print("*교시|     ");
 			for (int j = 1; j < 6; j++) {
 
 				for (myCourseApplicationDTO dto : list) {
 					if (i == Integer.parseInt(dto.getPeriodNum()) && j == Integer.parseInt(dto.getDayCode
 
 					())) {
-						System.out.print("▒▒▒▒▒" + dto.getSubjectScore() + "  ");
+						System.out.print("" + dto.getSubjectScore() + "");
 					} else {
-						System.out.print("▒▒▒▒▒");
+						System.out.print(" ");
 					}
 					;
 				} // for
-				System.out.print("\t\t");
+				System.out.print("\t\t     ");
 			}
 			System.out.println("");
 

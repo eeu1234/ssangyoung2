@@ -11,7 +11,7 @@ public class DBUtil {
    public static Connection open() {
       
       String url = "jdbc:oracle:thin:@eeu1234.iptime.org:1521:adam";
-      String id = "jinwoo";
+      String id = "total";
       String pw = "java1234";
       
       try {
